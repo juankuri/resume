@@ -1,17 +1,114 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+
+    <main>
+        <div class="container">
+            <section id="welcome">
+					<img src="/foto_perfil.png" alt="Juan Kuri" id="profile-photo">
+					<div>
+						<h1>Juan Kuri</h1>
+						<p>Junior Developer | B.Eng. in Software Engineering</p>
+					</div>
+				</section>
+				<section id="about-me">
+					<h2>About me</h2>
+					<p>Software Engineering student with practical experience building backend systems and REST APIs using Java (Spring Boot) and JavaScript (Node.js/Express). Comfortable working with relational databases, version control, and Linux environments. Familiar with frontend technologies (HTML5, CSS3, Vue.js) at a basic level. Currently in my 3rd year at Universidad Veracruzana, Mexico. Looking for junior developer position where I can contribute to real-world projects and grow within a professional engineering team.</p>
+				</section>
+				<section id="approach">
+					<h3>Experience</h3>
+					<h2>My approach to work</h2>
+					<p>A few principles that guide how I write code and work with a team.</p>
+					<div>
+						<svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+							<polyline points="22 4 12 14.01 9 11.01" />
+						</svg>
+						<h3>Honest approach</h3>
+						<p>I flag problems early instead of hiding them: clear estimates, visible progress, and no surprises.</p>
+					</div>
+					<div>
+						<svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<polygon points="12 2 2 7 12 12 22 7 12 2" />
+							<polyline points="2 17 12 22 22 17" />
+							<polyline points="2 12 12 17 22 12" />
+						</svg>
+						<h3>Built to last</h3>
+						<p>I write readable, well-structured code so the next person — often future me — can build on it without friction.</p>
+					</div>
+					<div>
+						<svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<circle cx="12" cy="12" r="10" />
+							<polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+						</svg>
+						<h3>Curiosity</h3>
+						<p>I like understanding how things work under the hood, and I pick up new tools and languages quickly when a project calls for them.</p>
+					</div>
+				</section>
+				<section id="technical-skills">
+					<h2>Technical skills</h2>
+					<ul>
+						<li>
+							<h3>Programming Languages</h3>
+							<p>Java, JavaScript, SQL, Python</p>
+						</li>
+						<li>
+							<h3>Tools &amp; Enviroment</h3>
+							<p>Git, Github, Linux, Render and Github Pages</p>
+						</li>
+						<li>
+							<h3>Backend</h3>
+							<p>Spring Boot, Express.js</p>
+						</li>
+						<li>
+							<h3>Frontend</h3>
+							<p>Currently learning Astro and modern frontend development.</p>
+						</li>
+					</ul>
+				</section>
+				<section id="soft-skills">
+					<h2>Soft skills</h2>
+					<ul>
+						<li>
+							<h3>Clear communication</h3>
+							<p>I write code that works and stays working long after it's done</p>
+						</li>
+						<li>
+							<h3>Conflict Resolution</h3>
+							<p>I listem first, then build what actually solves the problem at hand</p>
+						</li>
+						<li>
+							<h3>Adaptability</h3>
+							<p>I ship Products that users want to use and keep using every day</p>
+						</li>
+					</ul>
+				</section>
+				<section id="education">
+					<h2>Education</h2>
+					<h3>B. Eng. in Software Engineering</h3>
+					<p>Universidad Veracruzana, Mexico <br> August 2023 - December 2027</p>
+				</section>
+				<section id="my-roles">
+					<h2>My roles</h2>
+					<p>Backend and front developer, Web desginer, Technical writer.</p>
+				</section>
+				<section id="languages">
+					<h2>Languages</h2>
+					<ul>
+						<li>Spanish</li>
+						<li>English</li>
+					</ul>
+				</section>
+				<section id="contact">
+					<h2>Contact</h2>
+					<h3>Email</h3>
+					<p>juankupa11@gmail.com</p>
+					<h3>Location</h3>
+					<p>Orizaba, Veracruz, Mexico</p>
+				</section>
+        </div>
+    </main>
+
+</BaseLayout>

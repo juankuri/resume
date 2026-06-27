@@ -1,0 +1,430 @@
+/* ============================================================
+   global.css — Resume de Juan Kuri
+   Estilos agrupados por sección y comentados para aprender.
+   ============================================================ */
+
+/* Tipografía variable Outfit (ya la tenías importada) */
+@import "@fontsource-variable/outfit";
+
+
+/* ------------------------------------------------------------
+   1. VARIABLES (tokens de diseño)
+   Se definen los valores una sola vez y se reutilizan con var().
+   Ejemplo de uso:  color: var(--ink);
+   ------------------------------------------------------------ */
+:root {
+	/* Colores */
+	--bg: #f6f6f4;            /* fondo general (blanco cálido) */
+	--surface: #ffffff;      /* fondo de las tarjetas */
+	--ink: #18181b;          /* texto principal (casi negro) */
+	--ink-soft: #5b5b66;     /* texto secundario (gris) */
+	--line: #e7e7e2;         /* líneas y bordes finos */
+	--accent: #4f46e5;       /* color de acento (índigo) */
+
+	--header-bg: #141414;    /* fondo oscuro de header y footer */
+	--header-ink: #ededed;   /* texto claro sobre fondo oscuro */
+	--header-ink-soft: #9a9aa3;
+
+	/* Medidas reutilizables */
+	--container: 960px;      /* ancho máximo del contenido */
+	--radius: 14px;          /* redondeo de las tarjetas */
+	--gap: 24px;             /* separación base */
+	--ease: 200ms ease;      /* duración de las transiciones */
+
+	/* Fuente monoespaciada del sistema para etiquetas pequeñas */
+	--mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+
+/* ------------------------------------------------------------
+   2. BASE / RESET
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;   /* el padding NO agranda el ancho */
+}
+
+html {
+	background-color: var(--bg);
+	color: var(--ink);
+	font-family: "Outfit Variable", "Outfit", sans-serif;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased; /* texto más nítido en Mac */
+	scroll-behavior: smooth;             /* scroll suave en enlaces #ancla */
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	/* (Se quitó el border negro de depuración) */
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+a {
+	color: inherit;
+	transition: color var(--ease);
+}
+
+p {
+	color: var(--ink-soft);
+	margin: 0 0 1rem;
+}
+
+/* Contenedor centrado reutilizable (header, main y footer) */
+.container {
+	max-width: var(--container);
+	margin-inline: auto;     /* centra horizontalmente */
+	padding-inline: 24px;    /* aire a los lados */
+}
+
+
+/* ------------------------------------------------------------
+   3. TIPOGRAFÍA (jerarquía de títulos)
+   ------------------------------------------------------------ */
+h1, h2, h3 {
+	color: var(--ink);
+	line-height: 1.2;
+	margin: 0;
+}
+
+h1 {
+	font-size: clamp(2.4rem, 5vw, 3.4rem); /* se adapta al ancho de pantalla */
+	font-weight: 800;
+	letter-spacing: -0.02em;               /* títulos grandes lucen mejor más juntos */
+}
+
+h2 {
+	font-size: 1.55rem;
+	font-weight: 700;
+	letter-spacing: -0.01em;
+}
+
+h3 {
+	font-size: 1.05rem;
+	font-weight: 600;
+}
+
+
+/* ------------------------------------------------------------
+   4. HEADER (barra oscura de ancho completo + navegación)
+   ------------------------------------------------------------ */
+.header {
+	background-color: var(--header-bg);
+	color: var(--header-ink);
+	position: sticky;        /* se queda pegada arriba al hacer scroll */
+	top: 0;
+	z-index: 10;
+	border-bottom: 1px solid #262626;
+}
+
+.header-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 18px 24px;
+}
+
+.header h2 {
+	color: var(--header-ink);
+	font-size: 1.25rem;
+	letter-spacing: 0.02em;
+}
+
+.main-navigation {
+	display: flex;
+	gap: 8px;
+}
+
+.main-navigation a {
+	text-decoration: none;
+	color: var(--header-ink-soft);
+	font-size: 0.95rem;
+	font-weight: 500;
+	padding: 8px 12px;
+	border-radius: 8px;
+	transition: color var(--ease), background-color var(--ease);
+}
+
+.main-navigation a:hover {
+	color: var(--header-ink);
+	background-color: rgba(255, 255, 255, 0.06); /* leve resaltado al pasar el cursor */
+}
+
+
+/* ------------------------------------------------------------
+   5. ESPACIADO Y TÍTULOS DE SECCIÓN (espacio en blanco)
+   ------------------------------------------------------------ */
+main section {
+	padding: 56px 0;
+	border-bottom: 1px solid var(--line); /* separador sutil entre secciones */
+}
+
+main section:last-child {
+	border-bottom: none;
+}
+
+/* Pequeño subrayado de acento bajo cada título de sección */
+main section > h2 {
+	position: relative;
+	margin-bottom: 24px;
+	padding-bottom: 12px;
+}
+
+main section > h2::after {
+	content: "";              /* los pseudo-elementos necesitan content */
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 40px;
+	height: 3px;
+	border-radius: 2px;
+	background: var(--accent);
+}
+
+
+/* ------------------------------------------------------------
+   6. HERO (#welcome): foto de perfil + nombre
+   ------------------------------------------------------------ */
+#welcome {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+	padding-top: 64px;       /* un poco más de aire arriba */
+}
+
+#profile-photo {
+	width: 160px;
+	height: 160px;
+	border-radius: 50%;      /* círculo perfecto */
+	object-fit: cover;       /* recorta la foto sin deformarla */
+	border: 4px solid var(--surface);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+	flex-shrink: 0;          /* la foto no se encoge si falta espacio */
+}
+
+#welcome h1 {
+	margin-bottom: 8px;
+}
+
+/* El subtítulo (rol) usa la fuente mono como etiqueta */
+#welcome p {
+	font-family: var(--mono);
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--accent);
+	margin: 0;
+}
+
+
+/* ------------------------------------------------------------
+   7. APPROACH (#approach): etiqueta superior + intro
+   ------------------------------------------------------------ */
+/* La primera h3 ("Experience") actúa como etiqueta (eyebrow) */
+#approach > h3 {
+	font-family: var(--mono);
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: var(--accent);
+	font-weight: 600;
+	margin-bottom: 8px;
+	display: grid;
+}
+
+#approach > p {
+	max-width: 60ch;         /* ancho de lectura cómodo (~60 caracteres) */
+}
+
+/* Separación entre las tarjetas de enfoque */
+#approach > div {
+	margin-top: var(--gap);
+}
+
+
+/* ------------------------------------------------------------
+   8. TARJETAS (skills, soft-skills, approach)
+   Mismo aspecto de tarjeta reutilizado en varias secciones.
+   ------------------------------------------------------------ */
+
+/* Listas convertidas en rejilla flexible, sin viñetas */
+#technical-skills ul,
+#soft-skills ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;         /* las tarjetas saltan de línea solas */
+	gap: var(--gap);
+}
+
+/* Cada tarjeta parte de 240px y se reparte el espacio sobrante */
+#technical-skills li,
+#soft-skills li {
+	flex: 1 1 240px;         /* crecer | encoger | base */
+}
+
+/* Aspecto visual de tarjeta */
+#technical-skills li,
+#soft-skills li,
+#approach > div {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	padding: 24px;
+	transition: transform var(--ease),
+	            box-shadow var(--ease),
+	            border-color var(--ease);
+}
+
+/* Hover suave: la tarjeta se eleva un poco */
+#technical-skills li:hover,
+#soft-skills li:hover,
+#approach > div:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
+	border-color: #d6d6d0;
+}
+
+#technical-skills li h3,
+#soft-skills li h3,
+#approach > div h3 {
+	margin-bottom: 8px;
+}
+
+#technical-skills li p,
+#soft-skills li p,
+#approach > div p {
+	margin: 0;
+	font-size: 0.95rem;
+}
+
+
+/* ------------------------------------------------------------
+   9. EDUCATION / CONTACT (texto sencillo con etiquetas)
+   ------------------------------------------------------------ */
+#education h3 {
+	margin-bottom: 4px;
+}
+
+/* Las h3 de contacto (Email, Location) como etiquetas pequeñas */
+#contact h3 {
+	font-family: var(--mono);
+	font-size: 0.78rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--ink-soft);
+	margin-top: 20px;
+	margin-bottom: 4px;
+}
+
+#contact h3:first-of-type {
+	margin-top: 0;
+}
+
+
+/* ------------------------------------------------------------
+   10. LANGUAGES (#languages): "chips" en línea
+   ------------------------------------------------------------ */
+#languages ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+#languages li {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: 999px;    /* valor grande = pastilla totalmente redondeada */
+	padding: 8px 16px;
+	font-size: 0.9rem;
+}
+
+
+/* ------------------------------------------------------------
+   11. FOOTER (oscuro, profesional)
+   ------------------------------------------------------------ */
+.footer {
+	background: var(--header-bg);
+	color: var(--header-ink);
+	margin-top: 40px;
+}
+
+.footer-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 12px;
+	padding: 28px 24px;
+}
+
+#socials {
+	display: flex;
+	gap: 10px;
+}
+
+#socials a {
+	text-decoration: none;
+	font-family: var(--mono);
+	font-size: 0.8rem;
+	letter-spacing: 0.08em;
+	color: var(--header-ink-soft);
+	transition: color var(--ease);
+}
+
+#socials a:hover {
+	color: var(--header-ink);
+}
+
+/* Sobrescribe el color gris global de <p> dentro del footer */
+.footer p {
+	margin: 0;
+	color: var(--header-ink-soft);
+	font-size: 0.85rem;
+}
+
+
+/* ------------------------------------------------------------
+   12. RESPONSIVE (móvil) — Flexbox + media query sencilla
+   ------------------------------------------------------------ */
+@media (max-width: 700px) {
+
+	/* Header: logo arriba, navegación debajo */
+	.header-content {
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	/* Hero: foto arriba, texto debajo y centrado */
+	#welcome {
+		flex-direction: column;
+		text-align: center;
+		gap: 20px;
+	}
+
+	/* Las tarjetas pasan a una por fila */
+	#technical-skills li,
+	#soft-skills li {
+		flex-basis: 100%;
+	}
+
+	/* Footer en columna */
+	.footer-content {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	/* Menos espacio vertical en pantallas pequeñas */
+	main section {
+		padding: 40px 0;
+	}
+}
