@@ -1,11 +1,13 @@
 ---
 import SkillCard from "../components/SkillCard.astro";
-import { technicalSkills, softSkills } from "../data/skills";
+import { technicalSkills, softSkills, approaches } from "../data/skills";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout>
-
+<BaseLayout
+    title="Juan Kuri | Junior Backend Developer"
+    description="Software Engineering student specializing in Java, Spring Boot, Express.js and backend development."
+>
     <main>
         <div class="container">
             <section id="welcome">
@@ -23,65 +25,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 					<h3>Experience</h3>
 					<h2>My approach to work</h2>
 					<p>A few principles that guide how I write code and work with a team.</p>
-					<SkillCard
-						title="Honest approach"
-						description="I flag problems early instead of hiding them: clear estimates, visible progress, and no surprises."
-					>
-						<svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-							<polyline points="22 4 12 14.01 9 11.01" />
-						</svg>
-					</SkillCard>
-
-					<SkillCard
-						title="Built to last"
-						description="I write readable, well-structured code so the next person — often future me — can build on it without friction."
-					>
-						<svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<polygon points="12 2 2 7 12 12 22 7 12 2" />
-							<polyline points="2 17 12 22 22 17" />
-							<polyline points="2 12 12 17 22 12" />
-						</svg>
-					</SkillCard>
-
-					<SkillCard
-						title="Curiosity"
-						description="I like understanding how things work under the hood, and I pick up new tools and languages quickly when a project calls for them."
-					>
-						<svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<circle cx="12" cy="12" r="10" />
-							<polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
-						</svg>
-					</SkillCard>
+					<div class="cards">
+						{
+						approaches.map(({ title, description, icon }) => (
+							<SkillCard title={title} description={description}>
+							<Fragment set:html={icon} />
+							</SkillCard>
+						))
+						}
+					</div>
 				</section>
 				<section id="technical-skills">
 					<h2>Technical skills</h2>
-					<!-- <ul>
-						<li>
-							<SkillCard 
-								title="Programming Languages"
-								description="Java, JavaScript, SQL, Python"
-							/>
-						</li>
-						<li>
-							<SkillCard 
-								title="Tools &amp; Enviroment"
-								description="Git, Github, Linux, Render and Github Pages"
-							/>
-						</li>
-						<li>
-							<SkillCard 
-								title="Backend"
-								description="Spring Boot, Express.js"
-							/>
-						</li>
-						<li>
-							<SkillCard 
-								title="Frontend"
-								description="Currently learning Astro and modern frontend development"
-							/>
-						</li>
-					</ul> -->
 					<div class="cards">
 						{
 							technicalSkills.map(skill => (
