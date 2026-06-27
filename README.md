@@ -1,43 +1,108 @@
-# Astro Starter Kit: Minimal
+# Juan Kuri Resume Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Personal resume website built with Astro.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This project serves as the first iteration of my personal website and the foundation for future versions including an About page, portfolio, and complete personal website.
 
-## 🚀 Project Structure
+## Overview
 
-Inside of your Astro project, you'll see the following folders and files:
+The goal of this project is to create a fast, accessible, and SEO-friendly resume website while learning modern web development tools and workflows.
+
+The project focuses on:
+
+* Astro fundamentals
+* Component-based development
+* Reusable layouts and props
+* Static site generation
+* Basic SEO practices
+* Responsive design
+* Modern deployment workflows
+
+## Technologies
+
+* Astro
+* HTML5
+* CSS3
+* JavaScript
+* pnpm
+* Git & GitHub
+
+## Features
+
+* Responsive design
+* Component-based architecture
+* Reusable cards and layouts
+* SEO metadata
+* Open Graph tags
+* Static site generation
+* Fast loading performance
+
+## Project Structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── components/
+├── data/
+├── layouts/
+├── pages/
+└── styles/
+
+public/
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Local Development
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Install dependencies:
 
-Any static assets, like images, can be placed in the `public/` directory.
+```bash
+pnpm install
+```
 
-## 🧞 Commands
+Start the development server:
 
-All commands are run from the root of the project, from a terminal:
+```bash
+pnpm dev
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Build the project:
 
-## 👀 Want to learn more?
+```bash
+pnpm build
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Preview the production build:
+
+```bash
+pnpm preview
+```
+
+## Learning Goals
+
+This project was created to learn:
+
+* Astro fundamentals
+* Component architecture
+* Static websites
+* SEO basics
+* Modern deployment workflows
+
+It is the first step toward building a complete personal website and future freelance web development projects.
+
+## Future Improvements
+
+* About page
+* Portfolio section
+* Project showcase
+* Contact form
+* Blog
+* Domain integration
+* Search Console integration
+
+## Author
+
+Juan Kuri
+
+Software Engineering student from Mexico specializing in backend development with Java and Spring Boot.
+
+* LinkedIn: https://www.linkedin.com/in/juankuri/
+* GitHub: https://github.com/juankuri
