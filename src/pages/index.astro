@@ -1,4 +1,6 @@
 ---
+import SkillCard from "../components/SkillCard.astro";
+import { technicalSkills, softSkills } from "../data/skills";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
@@ -21,69 +23,90 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 					<h3>Experience</h3>
 					<h2>My approach to work</h2>
 					<p>A few principles that guide how I write code and work with a team.</p>
-					<div>
+					<SkillCard
+						title="Honest approach"
+						description="I flag problems early instead of hiding them: clear estimates, visible progress, and no surprises."
+					>
 						<svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
 							<polyline points="22 4 12 14.01 9 11.01" />
 						</svg>
-						<h3>Honest approach</h3>
-						<p>I flag problems early instead of hiding them: clear estimates, visible progress, and no surprises.</p>
-					</div>
-					<div>
+					</SkillCard>
+
+					<SkillCard
+						title="Built to last"
+						description="I write readable, well-structured code so the next person — often future me — can build on it without friction."
+					>
 						<svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 							<polygon points="12 2 2 7 12 12 22 7 12 2" />
 							<polyline points="2 17 12 22 22 17" />
 							<polyline points="2 12 12 17 22 12" />
 						</svg>
-						<h3>Built to last</h3>
-						<p>I write readable, well-structured code so the next person — often future me — can build on it without friction.</p>
-					</div>
-					<div>
+					</SkillCard>
+
+					<SkillCard
+						title="Curiosity"
+						description="I like understanding how things work under the hood, and I pick up new tools and languages quickly when a project calls for them."
+					>
 						<svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 							<circle cx="12" cy="12" r="10" />
 							<polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
 						</svg>
-						<h3>Curiosity</h3>
-						<p>I like understanding how things work under the hood, and I pick up new tools and languages quickly when a project calls for them.</p>
-					</div>
+					</SkillCard>
 				</section>
 				<section id="technical-skills">
 					<h2>Technical skills</h2>
-					<ul>
+					<!-- <ul>
 						<li>
-							<h3>Programming Languages</h3>
-							<p>Java, JavaScript, SQL, Python</p>
+							<SkillCard 
+								title="Programming Languages"
+								description="Java, JavaScript, SQL, Python"
+							/>
 						</li>
 						<li>
-							<h3>Tools &amp; Enviroment</h3>
-							<p>Git, Github, Linux, Render and Github Pages</p>
+							<SkillCard 
+								title="Tools &amp; Enviroment"
+								description="Git, Github, Linux, Render and Github Pages"
+							/>
 						</li>
 						<li>
-							<h3>Backend</h3>
-							<p>Spring Boot, Express.js</p>
+							<SkillCard 
+								title="Backend"
+								description="Spring Boot, Express.js"
+							/>
 						</li>
 						<li>
-							<h3>Frontend</h3>
-							<p>Currently learning Astro and modern frontend development.</p>
+							<SkillCard 
+								title="Frontend"
+								description="Currently learning Astro and modern frontend development"
+							/>
 						</li>
-					</ul>
+					</ul> -->
+					<div class="cards">
+						{
+							technicalSkills.map(skill => (
+								<SkillCard
+									title={skill.title}
+									description={skill.description}
+								/>
+							))
+						}
+					</div>
 				</section>
 				<section id="soft-skills">
 					<h2>Soft skills</h2>
-					<ul>
-						<li>
-							<h3>Clear communication</h3>
-							<p>I write code that works and stays working long after it's done</p>
-						</li>
-						<li>
-							<h3>Conflict Resolution</h3>
-							<p>I listem first, then build what actually solves the problem at hand</p>
-						</li>
-						<li>
-							<h3>Adaptability</h3>
-							<p>I ship Products that users want to use and keep using every day</p>
-						</li>
-					</ul>
+					
+					<div class="cards">
+						{
+							softSkills.map(skill => (
+								<SkillCard
+									title={skill.title}
+									description={skill.description}
+								/>
+							))
+						}
+					</div>
+
 				</section>
 				<section id="education">
 					<h2>Education</h2>
@@ -92,7 +115,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 				</section>
 				<section id="my-roles">
 					<h2>My roles</h2>
-					<p>Backend and front developer, Web desginer, Technical writer.</p>
+					<p>Backend and front developer, Web designer, Technical writer.</p>
 				</section>
 				<section id="languages">
 					<h2>Languages</h2>
