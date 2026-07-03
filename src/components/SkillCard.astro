@@ -1,8 +1,8 @@
 ---
-const { title, description } = Astro.props;
+const { title, description, variant = "" } = Astro.props;
 ---
 
-<article class="card">
+<article class={`card ${variant}`}>
 	<slot />
 	<h3>{title}</h3>
 	<p>{description}</p>
@@ -15,6 +15,17 @@ const { title, description } = Astro.props;
 		border-radius: var(--radius);
 		padding: 24px;
 		transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+	}
+
+	.card.transparent {
+		background: transparent;
+		border: none;
+		justify-items: center;
+		text-align: justify;
+	}
+
+	.card-icon {
+		margin: auto;
 	}
 
 	.card:hover {
