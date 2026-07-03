@@ -74,7 +74,7 @@ p {
 }
 
 section {
-	padding: 56px 0;
+	padding: 48px 0;
 	border-bottom: 1px solid var(--line);
 }
 
@@ -264,7 +264,7 @@ section > h2::after {
 .footer {
 	background: var(--header-bg);
 	color: var(--header-ink);
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 .footer-content {
