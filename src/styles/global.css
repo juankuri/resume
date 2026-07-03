@@ -222,6 +222,22 @@ section > h2::after {
 	margin-bottom: 12px;
 }
 
+
+
+
+.layout {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--gap);
+}
+
+@media (min-width: 700px) {
+	.layout {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+
 /* ------------------------------------------------------------
    8. LANGUAGES: chips
    ------------------------------------------------------------ */
