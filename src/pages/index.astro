@@ -1,5 +1,6 @@
 ---
 import SkillCard from "../components/SkillCard.astro";
+import CopyButton from "../components/CopyButton.astro";
 import { technicalSkills, softSkills, approaches } from "../data/skills";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
@@ -80,14 +81,41 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 						<li>English</li>
 					</ul>
 				</section>
+				</div>
 				<section id="contact">
 					<h2>Contact</h2>
-					<h3>Email</h3>
-					<p>juankupa11@gmail.com</p>
-					<h3>Location</h3>
-					<p>Orizaba, Veracruz, Mexico</p>
+					<div class="layout">
+						<div>
+							<h3>Email</h3>
+							<div class="email-row">
+								<a href="mailto:juankupa11@gmail.com" class="email-link">juankupa11@gmail.com</a>
+								<CopyButton text="juankupa11@gmail.com" />
+							</div>
+						</div>
+						<div>
+							<h3>Location</h3>
+							<p>Orizaba, Veracruz, Mexico</p>
+						</div>
+					</div>
 				</section>
         </div>
     </main>
 
 </BaseLayout>
+
+<style>
+	.email-row {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.email-link {
+		color: var(--ink-soft);
+		text-decoration: none;
+	}
+
+	.email-link:hover {
+		color: var(--accent);
+	}
+</style>
