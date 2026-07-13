@@ -1,121 +1,380 @@
 ---
-import SkillCard from "../components/SkillCard.astro";
-import CopyButton from "../components/CopyButton.astro";
-import { technicalSkills, softSkills, approaches } from "../data/skills";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PortfolioHeader from "../components/portfolio/PortfolioHeader.astro";
+import PortfolioFooter from "../components/portfolio/PortfolioFooter.astro";
+import ProjectCard from "../components/portfolio/ProjectCard.astro";
+import DeviceMockup from "../components/portfolio/DeviceMockup.astro";
+import { ui, waHref, featured, demos, steps, included } from "../data/portfolio.js";
+
+const lang = "es";
+const t = ui[lang];
+const p1 = featured[lang];
+const demoList = demos[lang];
 ---
 
 <BaseLayout
-    title="Juan Kuri | Junior Backend Developer"
-    description="Software Engineering student specializing in Java, Spring Boot, Express.js and backend development."
+    lang={lang}
+    title="Kuri | Diseño y desarrollo de sitios web para tu negocio"
+    description="Creo sitios web rápidos, claros y a la medida para negocios locales. Menús QR, páginas para consultorios, laboratorios y más."
 >
+    <PortfolioHeader slot="header" t={t} lang={lang} />
+    <PortfolioFooter slot="footer" t={t} lang={lang} />
+
     <main>
-        <div class="container">
-            <section id="welcome">
-					<img src="/foto_perfil.png" alt="Juan Kuri" id="profile-photo">
-					<div>
-						<h1>Juan Kuri</h1>
-						<p>Junior Developer | B.Eng. in Software Engineering</p>
-					</div>
-				</section>
-				<section id="about-me">
-					<h2>About me</h2>
-					<p>Software Engineering student with practical experience building backend systems and REST APIs using Java (Spring Boot) and JavaScript (Node.js/Express). Comfortable working with relational databases, version control, and Linux environments. Familiar with frontend technologies (Astro, HTML5, CSS) at a basic level. Currently in my 3rd year at Universidad Veracruzana, Mexico. Looking for junior developer position where I can contribute to real-world projects and grow within a professional engineering team.</p>
-				</section>
-				<section id="approach">
-					<h3>Experience</h3>
-					<h2>My approach to work</h2>
-					<p>A few principles that guide how I write code and work with a team.</p>
-					<div class="cards transparent">
-						{
-						approaches.map(({ title, description, icon }) => (
-							<SkillCard title={title} description={description} variant="transparent">
-							<Fragment set:html={icon} />
-							</SkillCard>
-						))
-						}
-					</div>
-				</section>
-				<section id="technical-skills">
-					<h2>Technical skills</h2>
-					<div class="cards">
-						{
-							technicalSkills.map(skill => (
-								<SkillCard
-									title={skill.title}
-									description={skill.description}
-								/>
-							))
-						}
-					</div>
-				</section>
-				<section id="soft-skills">
-					<h2>Soft skills</h2>
-					
-					<div class="cards">
-						{
-							softSkills.map(skill => (
-								<SkillCard
-									title={skill.title}
-									description={skill.description}
-								/>
-							))
-						}
-					</div>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <p class="eyebrow eyebrow-light">{t.heroKicker}</p>
+                <h1>{t.heroTitle}</h1>
+                <p class="hero-sub">{t.heroSub}</p>
+                <div class="btn-row">
+                    <a class="btn btn-solid" href={waHref[lang]}>{t.heroCta1}</a>
+                    <a class="btn btn-ghost" href="#proyectos">{t.heroCta2}</a>
+                </div>
+            </div>
+        </section>
 
-				</section>
-				<div class="layout">
-					<section id="education">
-					<h2>Education</h2>
-					<h3>B. Eng. in Software Engineering</h3>
-					<p>Universidad Veracruzana, Mexico <br> August 2023 - December 2027</p>
-				</section>
-				<section id="my-roles">
-					<h2>My roles</h2>
-					<p>Backend and front developer, Web developer, Technical writer.</p>
-				</section>
-				<section id="languages">
-					<h2>Languages</h2>
-					<ul>
-						<li>Spanish</li>
-						<li>English</li>
-					</ul>
-				</section>
-				</div>
-				<section id="contact">
-					<h2>Contact</h2>
-					<div class="layout">
-						<div>
-							<h3>Email</h3>
-							<div class="email-row">
-								<a href="mailto:juankupa11@gmail.com" class="email-link">juankupa11@gmail.com</a>
-								<CopyButton text="juankupa11@gmail.com" />
-							</div>
-						</div>
-						<div>
-							<h3>Location</h3>
-							<p>Orizaba, Veracruz, Mexico</p>
-						</div>
-					</div>
-				</section>
-        </div>
+        <!-- DEVICE BAND -->
+        <section class="device-band">
+            <div class="container devices">
+                <div class="laptop">
+                    <DeviceMockup variant="browser" ratio="16 / 10">
+                        <img src="/portfolio/duolab-desktop.png" alt="Sitio web de DúoLab en computadora" />
+                    </DeviceMockup>
+                </div>
+                <div class="phone-wrap">
+                    <DeviceMockup variant="phone" ratio="9 / 19.5">
+                        <img src="/portfolio/duolab-mobile.png" alt="Sitio web de DúoLab en celular" />
+                    </DeviceMockup>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="proyectos" class="projects">
+            <div class="container">
+                <p class="eyebrow">{t.projKicker}</p>
+                <h2>{t.projTitle}</h2>
+                <p class="section-sub">{t.projSub}</p>
+
+                <!-- Featured: DúoLab -->
+                <article class="featured">
+                    <div class="featured-body">
+                        <span class="featured-tag">● {p1.tag}</span>
+                        <h3>{p1.title}</h3>
+                        <p>{p1.desc}</p>
+                        <p class="benefits-label">{t.benefitsLabel}</p>
+                        <ul class="benefits">
+                            {p1.features.map((f) => (
+                                <li><span class="check">✓</span>{f}</li>
+                            ))}
+                        </ul>
+                        <div class="featured-actions">
+                            <a class="btn btn-dark" href={p1.demoHref} target="_blank" rel="noopener noreferrer">{t.viewLive} ↗</a>
+                            <a class="link-accent" href={waHref[lang]}>{t.wantSimilar}</a>
+                        </div>
+                    </div>
+                    <div class="featured-media">
+                        <DeviceMockup variant="browser" ratio="16 / 11">
+                            <img src="/portfolio/duolab-desktop.png" alt="Página principal de DúoLab" />
+                        </DeviceMockup>
+                    </div>
+                </article>
+
+                <!-- Demos -->
+                <p class="demos-label">{t.demosLabel}</p>
+                <div class="demo-grid">
+                    <ProjectCard project={demoList[0]} t={t} lang={lang}>
+                        <div class="demo-phone">
+                            <DeviceMockup variant="phone" ratio="9 / 12">
+                                <div class="placeholder">Menú QR — móvil</div>
+                            </DeviceMockup>
+                        </div>
+                    </ProjectCard>
+                    <ProjectCard project={demoList[1]} t={t} lang={lang}>
+                        <DeviceMockup variant="browser" ratio="16 / 9">
+                            <div class="placeholder">Consultorio dental — sitio</div>
+                        </DeviceMockup>
+                    </ProjectCard>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW I WORK -->
+        <section class="how">
+            <div class="container">
+                <p class="eyebrow eyebrow-light">{t.howKicker}</p>
+                <h2>{t.howTitle}</h2>
+                <div class="steps">
+                    {steps[lang].map((s) => (
+                        <div class="step">
+                            <div class="step-n">{s.n}</div>
+                            <h4>{s.title}</h4>
+                            <p>{s.body}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- INCLUDED -->
+        <section class="included">
+            <div class="container inc-grid">
+                <div>
+                    <p class="eyebrow">{t.incKicker}</p>
+                    <h2>{t.incTitle}</h2>
+                    <p class="section-sub">{t.incNote}</p>
+                    <a class="btn btn-dark" href={waHref[lang]}>{t.heroCta1}</a>
+                </div>
+                <ul class="inc-list">
+                    {included[lang].map((it) => (
+                        <li><span class="check">✓</span>{it}</li>
+                    ))}
+                </ul>
+            </div>
+        </section>
     </main>
-
 </BaseLayout>
 
 <style>
-	.email-row {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-	}
+    /* Full-bleed sections override the global section rhythm */
+    main section {
+        padding: 0;
+        border-bottom: none;
+    }
 
-	.email-link {
-		color: var(--ink-soft);
-		text-decoration: none;
-	}
+    .btn {
+        font-weight: 600;
+        font-size: 0.95rem;
+        border-radius: 999px;
+        padding: 14px 28px;
+        text-decoration: none;
+        transition: transform var(--ease), background-color var(--ease);
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-solid { color: var(--ink); background: #fff; }
+    .btn-ghost { color: #fff; border: 1px solid rgba(255, 255, 255, 0.35); }
+    .btn-ghost:hover { background: rgba(255, 255, 255, 0.06); }
+    .btn-dark { color: #fff; background: var(--ink); }
 
-	.email-link:hover {
-		color: var(--accent);
-	}
+    .btn-row {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 32px;
+    }
+
+    .check { color: var(--accent); font-weight: 700; }
+    .eyebrow-light { color: #a99bff; }
+    .section-sub { max-width: 560px; font-size: 1rem; }
+
+    .link-accent {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+    }
+    .link-accent:hover { color: var(--ink); }
+
+    /* HERO */
+    .hero {
+        background: var(--header-bg);
+        color: #fff;
+        text-align: center;
+        padding: 56px 0 90px;
+    }
+    .hero h1 {
+        color: #fff;
+        max-width: 820px;
+        margin: 16px auto 0;
+    }
+    .hero-sub {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 20px auto 0;
+    }
+
+    /* DEVICE BAND */
+    .device-band { background: var(--bg); padding-bottom: 60px; }
+    .devices {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-top: -52px;
+    }
+    .laptop { width: 620px; max-width: 100%; }
+    .phone-wrap {
+        width: 150px;
+        margin-left: -46px;
+        margin-bottom: -8px;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* PROJECTS */
+    .projects { background: var(--bg); padding-bottom: 64px; }
+    .projects h2 { margin-top: 10px; }
+
+    .featured {
+        margin-top: 36px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+    }
+    .featured-body { padding: 36px; }
+    .featured-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-weight: 600;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: rgba(79, 70, 229, 0.09);
+        padding: 6px 12px;
+        border-radius: 999px;
+    }
+    .featured-body h3 { font-size: 1.5rem; margin-top: 18px; }
+    .featured-body > p { margin: 14px 0 0; }
+    .benefits-label {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--ink);
+        margin: 22px 0 10px;
+    }
+    .benefits {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+    }
+    .benefits li {
+        display: flex;
+        gap: 10px;
+        font-size: 0.95rem;
+        color: var(--ink);
+    }
+    .featured-actions {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 26px;
+    }
+    .featured-media {
+        background: var(--warm);
+        padding: 30px;
+        display: flex;
+        align-items: center;
+    }
+    .featured-media > :global(*) { width: 100%; }
+
+    .demos-label {
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin: 44px 0 18px;
+    }
+    .demo-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+        align-items: start;
+    }
+    /* phone-in-a-card sits on a dark stage */
+    .demo-phone {
+        background: var(--ink);
+        margin: -24px -24px 0;
+        padding: 20px 20px 0;
+        display: flex;
+        justify-content: center;
+    }
+    .demo-phone :global(.phone) { width: 132px; box-shadow: none; }
+
+    /* HOW I WORK */
+    .how {
+        background: var(--header-bg);
+        color: #fff;
+        padding: 60px 0;
+    }
+    .how h2 { color: #fff; margin-top: 10px; }
+    .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 26px;
+        margin-top: 36px;
+    }
+    .step-n {
+        font-weight: 800;
+        font-size: 0.95rem;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(169, 155, 255, 0.16);
+        color: #a99bff;
+    }
+    .step h4 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin: 16px 0 0;
+        color: #fff;
+    }
+    .step p {
+        color: rgba(255, 255, 255, 0.66);
+        font-size: 0.9rem;
+        margin: 8px 0 0;
+    }
+
+    /* INCLUDED */
+    .included { background: var(--bg); padding: 60px 0; }
+    .inc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+    }
+    .included h2 { margin-top: 10px; }
+    .included .btn { display: inline-block; margin-top: 22px; }
+    .inc-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 22px;
+    }
+    .inc-list li {
+        display: flex;
+        gap: 11px;
+        align-items: flex-start;
+        font-size: 0.95rem;
+        color: var(--ink);
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--line);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+        .featured { grid-template-columns: 1fr; }
+        .featured-body { padding: 28px; }
+        .demo-grid { grid-template-columns: 1fr; }
+        .steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+        .inc-grid { grid-template-columns: 1fr; gap: 28px; }
+        .inc-list { grid-template-columns: 1fr; }
+        .phone-wrap { display: none; }
+        .laptop { width: 100%; }
+    }
 </style>
