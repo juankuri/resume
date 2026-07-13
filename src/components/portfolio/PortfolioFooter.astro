@@ -1,0 +1,88 @@
+---
+import { waHref, mailHref } from "../../data/portfolio.js";
+
+const { t, lang = "es" } = Astro.props;
+---
+
+<footer class="pf-footer">
+    <div class="container cta-band">
+        <h2>{t.ctaTitle}</h2>
+        <p>{t.ctaSub}</p>
+        <div class="cta-row">
+            <a class="btn btn-solid" href={waHref[lang]}>{t.navCta}</a>
+            <a class="btn btn-ghost" href={mailHref}>{t.emailBtn}</a>
+        </div>
+        <p class="rights">{t.rights}</p>
+    </div>
+</footer>
+
+<style>
+    .pf-footer {
+        background: var(--header-bg);
+        color: var(--header-ink);
+    }
+
+    .cta-band {
+        text-align: center;
+        padding-block: 70px;
+    }
+
+    .cta-band h2 {
+        color: #fff;
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        max-width: 640px;
+        margin-inline: auto;
+    }
+
+    .cta-band h2::after {
+        content: none;
+    }
+
+    .cta-band p {
+        color: var(--header-ink-soft);
+        font-size: 1.05rem;
+        max-width: 520px;
+        margin: 16px auto 0;
+    }
+
+    .cta-row {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+    .btn {
+        font-weight: 600;
+        font-size: 0.95rem;
+        border-radius: 999px;
+        padding: 14px 28px;
+        text-decoration: none;
+        transition: transform var(--ease), background-color var(--ease);
+    }
+
+    .btn-solid {
+        color: var(--ink);
+        background: #fff;
+    }
+
+    .btn-ghost {
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .btn:hover {
+        transform: translateY(-1px);
+    }
+
+    .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    .rights {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 42px;
+    }
+</style>

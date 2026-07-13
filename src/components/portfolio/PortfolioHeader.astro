@@ -1,0 +1,89 @@
+---
+import { waHref } from "../../data/portfolio.js";
+
+const { t, lang = "es" } = Astro.props;
+---
+
+<header class="pf-header">
+    <div class="container pf-header-content">
+        <a href="/" class="brand" aria-label="Kuri — inicio">
+            <img src="/logo-jk-light.svg" alt="" width="34" height="34" />
+        </a>
+        <div class="actions">
+            <button
+                id="lang-toggle"
+                class="lang-btn"
+                type="button"
+                aria-label="Switch language"
+            >{t.langBtn}</button>
+            <a class="cta" href={waHref[lang]}>{t.navCta}</a>
+        </div>
+    </div>
+</header>
+
+<style>
+    .pf-header {
+        background: var(--header-bg);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid #262626;
+    }
+
+    .pf-header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-block: 14px;
+    }
+
+    .brand {
+        display: inline-flex;
+        line-height: 0;
+    }
+
+    .brand img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .lang-btn {
+        font-family: inherit;
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        color: var(--header-ink);
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 999px;
+        padding: 7px 14px;
+        cursor: pointer;
+        transition: border-color var(--ease), background-color var(--ease);
+    }
+
+    .lang-btn:hover {
+        border-color: rgba(255, 255, 255, 0.55);
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    .cta {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--ink);
+        background: #fff;
+        border-radius: 999px;
+        padding: 9px 18px;
+        text-decoration: none;
+        transition: transform var(--ease);
+    }
+
+    .cta:hover {
+        transform: translateY(-1px);
+    }
+</style>
