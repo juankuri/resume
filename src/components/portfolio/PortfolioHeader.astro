@@ -1,7 +1,7 @@
 ---
 import { waHref } from "../../data/portfolio.js";
 
-const { t, lang = "es" } = Astro.props;
+const { t, ten, lang = "es" } = Astro.props;
 ---
 
 <header class="pf-header">
@@ -16,7 +16,9 @@ const { t, lang = "es" } = Astro.props;
                 type="button"
                 aria-label="Switch language"
             >{t.langBtn}</button>
-            <a class="cta" href={waHref[lang]}>{t.navCta}</a>
+            <a class="cta" href={waHref[lang]} data-en-href={waHref.en}>
+                <span data-en={ten.navCta}>{t.navCta}</span>
+            </a>
         </div>
     </div>
 </header>

@@ -8,8 +8,13 @@ import { ui, waHref, featured, demos, steps, included } from "../data/portfolio.
 
 const lang = "es";
 const t = ui[lang];
+const ten = ui.en;
 const p1 = featured[lang];
+const p1en = featured.en;
 const demoList = demos[lang];
+const demoListEn = demos.en;
+const stepsEn = steps.en;
+const includedEn = included.en;
 ---
 
 <BaseLayout
@@ -17,19 +22,19 @@ const demoList = demos[lang];
     title="Kuri | Diseño y desarrollo de sitios web para tu negocio"
     description="Creo sitios web rápidos, claros y a la medida para negocios locales. Menús QR, páginas para consultorios, laboratorios y más."
 >
-    <PortfolioHeader slot="header" t={t} lang={lang} />
-    <PortfolioFooter slot="footer" t={t} lang={lang} />
+    <PortfolioHeader slot="header" t={t} ten={ten} lang={lang} />
+    <PortfolioFooter slot="footer" t={t} ten={ten} lang={lang} />
 
     <main>
         <!-- HERO -->
         <section class="hero">
             <div class="container">
-                <p class="eyebrow eyebrow-light">{t.heroKicker}</p>
-                <h1>{t.heroTitle}</h1>
-                <p class="hero-sub">{t.heroSub}</p>
+                <p class="eyebrow eyebrow-light" data-en={ten.heroKicker}>{t.heroKicker}</p>
+                <h1 data-en={ten.heroTitle}>{t.heroTitle}</h1>
+                <p class="hero-sub" data-en={ten.heroSub}>{t.heroSub}</p>
                 <div class="btn-row">
-                    <a class="btn btn-solid" href={waHref[lang]}>{t.heroCta1}</a>
-                    <a class="btn btn-ghost" href="#proyectos">{t.heroCta2}</a>
+                    <a class="btn btn-solid" href={waHref[lang]} data-en-href={waHref.en} data-en={ten.heroCta1}>{t.heroCta1}</a>
+                    <a class="btn btn-ghost" href="#proyectos" data-en={ten.heroCta2}>{t.heroCta2}</a>
                 </div>
             </div>
         </section>
@@ -53,25 +58,25 @@ const demoList = demos[lang];
         <!-- PROJECTS -->
         <section id="proyectos" class="projects">
             <div class="container">
-                <p class="eyebrow">{t.projKicker}</p>
-                <h2>{t.projTitle}</h2>
-                <p class="section-sub">{t.projSub}</p>
+                <p class="eyebrow" data-en={ten.projKicker}>{t.projKicker}</p>
+                <h2 data-en={ten.projTitle}>{t.projTitle}</h2>
+                <p class="section-sub" data-en={ten.projSub}>{t.projSub}</p>
 
                 <!-- Featured: DúoLab -->
                 <article class="featured">
                     <div class="featured-body">
-                        <span class="featured-tag">● {p1.tag}</span>
-                        <h3>{p1.title}</h3>
-                        <p>{p1.desc}</p>
-                        <p class="benefits-label">{t.benefitsLabel}</p>
+                        <span class="featured-tag" data-en={`● ${p1en.tag}`}>● {p1.tag}</span>
+                        <h3 data-en={p1en.title}>{p1.title}</h3>
+                        <p data-en={p1en.desc}>{p1.desc}</p>
+                        <p class="benefits-label" data-en={ten.benefitsLabel}>{t.benefitsLabel}</p>
                         <ul class="benefits">
-                            {p1.features.map((f) => (
-                                <li><span class="check">✓</span>{f}</li>
+                            {p1.features.map((f, i) => (
+                                <li><span class="check">✓</span><span data-en={p1en.features[i]}>{f}</span></li>
                             ))}
                         </ul>
                         <div class="featured-actions">
-                            <a class="btn btn-dark" href={p1.demoHref} target="_blank" rel="noopener noreferrer">{t.viewLive} ↗</a>
-                            <a class="link-accent" href={waHref[lang]}>{t.wantSimilar}</a>
+                            <a class="btn btn-dark" href={p1.demoHref} target="_blank" rel="noopener noreferrer" data-en={`${ten.viewLive} ↗`}>{t.viewLive} ↗</a>
+                            <a class="link-accent" href={waHref[lang]} data-en-href={waHref.en} data-en={ten.wantSimilar}>{t.wantSimilar}</a>
                         </div>
                     </div>
                     <div class="featured-media">
@@ -82,18 +87,18 @@ const demoList = demos[lang];
                 </article>
 
                 <!-- Demos -->
-                <p class="demos-label">{t.demosLabel}</p>
+                <p class="demos-label" data-en={ten.demosLabel}>{t.demosLabel}</p>
                 <div class="demo-grid">
-                    <ProjectCard project={demoList[0]} t={t} lang={lang}>
+                    <ProjectCard project={demoList[0]} projectEn={demoListEn[0]} t={t} ten={ten} lang={lang}>
                         <div class="demo-phone">
                             <DeviceMockup variant="phone" ratio="9 / 12">
-                                <div class="placeholder">Menú QR — móvil</div>
+                                <div class="placeholder" data-en="QR menu — mobile">Menú QR — móvil</div>
                             </DeviceMockup>
                         </div>
                     </ProjectCard>
-                    <ProjectCard project={demoList[1]} t={t} lang={lang}>
+                    <ProjectCard project={demoList[1]} projectEn={demoListEn[1]} t={t} ten={ten} lang={lang}>
                         <DeviceMockup variant="browser" ratio="16 / 9">
-                            <div class="placeholder">Consultorio dental — sitio</div>
+                            <div class="placeholder" data-en="Dental clinic — site">Consultorio dental — sitio</div>
                         </DeviceMockup>
                     </ProjectCard>
                 </div>
@@ -103,14 +108,14 @@ const demoList = demos[lang];
         <!-- HOW I WORK -->
         <section class="how">
             <div class="container">
-                <p class="eyebrow eyebrow-light">{t.howKicker}</p>
-                <h2>{t.howTitle}</h2>
+                <p class="eyebrow eyebrow-light" data-en={ten.howKicker}>{t.howKicker}</p>
+                <h2 data-en={ten.howTitle}>{t.howTitle}</h2>
                 <div class="steps">
-                    {steps[lang].map((s) => (
+                    {steps[lang].map((s, i) => (
                         <div class="step">
                             <div class="step-n">{s.n}</div>
-                            <h4>{s.title}</h4>
-                            <p>{s.body}</p>
+                            <h4 data-en={stepsEn[i].title}>{s.title}</h4>
+                            <p data-en={stepsEn[i].body}>{s.body}</p>
                         </div>
                     ))}
                 </div>
@@ -121,20 +126,55 @@ const demoList = demos[lang];
         <section class="included">
             <div class="container inc-grid">
                 <div>
-                    <p class="eyebrow">{t.incKicker}</p>
-                    <h2>{t.incTitle}</h2>
-                    <p class="section-sub">{t.incNote}</p>
-                    <a class="btn btn-dark" href={waHref[lang]}>{t.heroCta1}</a>
+                    <p class="eyebrow" data-en={ten.incKicker}>{t.incKicker}</p>
+                    <h2 data-en={ten.incTitle}>{t.incTitle}</h2>
+                    <p class="section-sub" data-en={ten.incNote}>{t.incNote}</p>
+                    <a class="btn btn-dark" href={waHref[lang]} data-en-href={waHref.en} data-en={ten.heroCta1}>{t.heroCta1}</a>
                 </div>
                 <ul class="inc-list">
-                    {included[lang].map((it) => (
-                        <li><span class="check">✓</span>{it}</li>
+                    {included[lang].map((it, i) => (
+                        <li><span class="check">✓</span><span data-en={includedEn[i]}>{it}</span></li>
                     ))}
                 </ul>
             </div>
         </section>
     </main>
 </BaseLayout>
+
+<script>
+    // EN/ES toggle: swaps text/href between the rendered Spanish and the
+    // English carried in data-en / data-en-href attributes. Persists choice.
+    const STORAGE_KEY = "kuri-lang";
+
+    function applyLang(lang: string) {
+        const root = document.documentElement;
+        root.lang = lang;
+        root.dataset.lang = lang;
+
+        document.querySelectorAll<HTMLElement>("[data-en]").forEach((el) => {
+            if (el.dataset.es === undefined) el.dataset.es = el.textContent ?? "";
+            el.textContent = lang === "en" ? el.dataset.en ?? "" : el.dataset.es;
+        });
+
+        document.querySelectorAll<HTMLAnchorElement>("[data-en-href]").forEach((el) => {
+            if (el.dataset.esHref === undefined) el.dataset.esHref = el.getAttribute("href") ?? "";
+            const next = lang === "en" ? el.dataset.enHref : el.dataset.esHref;
+            if (next) el.setAttribute("href", next);
+        });
+
+        const btn = document.getElementById("lang-toggle");
+        if (btn) btn.textContent = lang === "en" ? "ES" : "EN";
+    }
+
+    let current = localStorage.getItem(STORAGE_KEY) === "en" ? "en" : "es";
+    applyLang(current);
+
+    document.getElementById("lang-toggle")?.addEventListener("click", () => {
+        current = current === "es" ? "en" : "es";
+        localStorage.setItem(STORAGE_KEY, current);
+        applyLang(current);
+    });
+</script>
 
 <style>
     /* Full-bleed sections override the global section rhythm */
