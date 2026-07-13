@@ -177,12 +177,6 @@ const includedEn = included.en;
 </script>
 
 <style>
-    /* Full-bleed sections override the global section rhythm */
-    main section {
-        padding: 0;
-        border-bottom: none;
-    }
-
     .btn {
         font-weight: 600;
         font-size: 0.95rem;
@@ -223,6 +217,7 @@ const includedEn = included.en;
         color: #fff;
         text-align: center;
         padding: 56px 0 90px;
+        border-bottom: none;
     }
     .hero h1 {
         color: #fff;
@@ -237,7 +232,7 @@ const includedEn = included.en;
     }
 
     /* DEVICE BAND */
-    .device-band { background: var(--bg); padding-bottom: 60px; }
+    .device-band { background: var(--bg); padding-bottom: 60px; border-bottom: none; }
     .devices {
         display: flex;
         justify-content: center;
@@ -254,7 +249,7 @@ const includedEn = included.en;
     }
 
     /* PROJECTS */
-    .projects { background: var(--bg); padding-bottom: 64px; }
+    .projects { background: var(--bg); padding-top: 8px; padding-bottom: 64px; border-bottom: none; }
     .projects h2 { margin-top: 10px; }
 
     .featured {
@@ -346,6 +341,7 @@ const includedEn = included.en;
         background: var(--header-bg);
         color: #fff;
         padding: 60px 0;
+        border-bottom: none;
     }
     .how h2 { color: #fff; margin-top: 10px; }
     .steps {
@@ -379,7 +375,7 @@ const includedEn = included.en;
     }
 
     /* INCLUDED */
-    .included { background: var(--bg); padding: 60px 0; }
+    .included { background: var(--bg); padding: 60px 0; border-bottom: none; }
     .inc-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
