@@ -2,7 +2,7 @@
 // Demo project card: media frame (via <slot />) + benefits + CTA.
 import { waHref } from "../../data/portfolio.js";
 
-const { project, t, lang = "es" } = Astro.props;
+const { project, projectEn, t, ten, lang = "es" } = Astro.props;
 ---
 
 <article class="project-card">
@@ -10,15 +10,15 @@ const { project, t, lang = "es" } = Astro.props;
         <slot />
     </div>
     <div class="body">
-        <span class="tag">{project.tag}</span>
-        <h3>{project.title}</h3>
-        <p>{project.desc}</p>
+        <span class="tag" data-en={projectEn.tag}>{project.tag}</span>
+        <h3 data-en={projectEn.title}>{project.title}</h3>
+        <p data-en={projectEn.desc}>{project.desc}</p>
         <ul class="benefits">
-            {project.features.map((f) => (
-                <li><span class="check">✓</span>{f}</li>
+            {project.features.map((f, i) => (
+                <li><span class="check">✓</span><span data-en={projectEn.features[i]}>{f}</span></li>
             ))}
         </ul>
-        <a class="ask" href={waHref[lang]}>{t.askDemo} →</a>
+        <a class="ask" href={waHref[lang]} data-en-href={waHref.en} data-en={`${ten.askDemo} →`}>{t.askDemo} →</a>
     </div>
 </article>
 

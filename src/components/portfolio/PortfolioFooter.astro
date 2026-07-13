@@ -1,16 +1,16 @@
 ---
 import { waHref, mailHref } from "../../data/portfolio.js";
 
-const { t, lang = "es" } = Astro.props;
+const { t, ten, lang = "es" } = Astro.props;
 ---
 
 <footer class="pf-footer">
     <div class="container cta-band">
-        <h2>{t.ctaTitle}</h2>
-        <p>{t.ctaSub}</p>
+        <h2 data-en={ten.ctaTitle}>{t.ctaTitle}</h2>
+        <p data-en={ten.ctaSub}>{t.ctaSub}</p>
         <div class="cta-row">
-            <a class="btn btn-solid" href={waHref[lang]}>{t.navCta}</a>
-            <a class="btn btn-ghost" href={mailHref}>{t.emailBtn}</a>
+            <a class="btn btn-solid" href={waHref[lang]} data-en-href={waHref.en} data-en={ten.navCta}>{t.navCta}</a>
+            <a class="btn btn-ghost" href={mailHref} data-en={ten.emailBtn}>{t.emailBtn}</a>
         </div>
         <p class="rights">{t.rights}</p>
     </div>
