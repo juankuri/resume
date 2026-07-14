@@ -65,7 +65,6 @@ const includedEn = included.en;
                 <!-- Featured: DúoLab -->
                 <article class="featured">
                     <div class="featured-body">
-                        <span class="featured-tag" data-en={`● ${p1en.tag}`}>● {p1.tag}</span>
                         <h3 data-en={p1en.title}>{p1.title}</h3>
                         <p data-en={p1en.desc}>{p1.desc}</p>
                         <p class="benefits-label" data-en={ten.benefitsLabel}>{t.benefitsLabel}</p>
@@ -262,20 +261,7 @@ const includedEn = included.en;
         grid-template-columns: 1.05fr 0.95fr;
     }
     .featured-body { padding: 36px; }
-    .featured-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        font-weight: 600;
-        font-size: 0.7rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--accent);
-        background: rgba(79, 70, 229, 0.09);
-        padding: 6px 12px;
-        border-radius: 999px;
-    }
-    .featured-body h3 { font-size: 1.5rem; margin-top: 18px; }
+    .featured-body h3 { font-size: 1.5rem; margin-top: 0; }
     .featured-body > p { margin: 14px 0 0; }
     .benefits-label {
         font-weight: 600;

@@ -12,40 +12,40 @@ export const email = EMAIL;
 
 export const waHref = {
     es: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-        "Hola Juan, me interesa un sitio web para mi negocio."
+        "Hola, me interesa un sitio web para mi negocio."
     )}`,
     en: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-        "Hi Juan, I am interested in a website for my business."
+        "Hi, I am interested in a website for my business."
     )}`,
 };
 
 export const ui = {
     es: {
         langBtn: "EN",
-        navCta: "Escríbeme",
+        navCta: "Escríbame",
         heroKicker: "Diseño y desarrollo web",
-        heroTitle: "Creo sitios web que hacen crecer tu negocio",
+        heroTitle: "Creo sitios web que hacen crecer su negocio",
         heroSub:
-            "Páginas modernas, optimizadas y hechas a la medida de tu negocio local. Tú me cuentas tu idea y yo la convierto en un sitio del que te sentirás orgulloso.",
+            "Páginas modernas, optimizadas y hechas a la medida de su negocio local. Usted me cuenta su idea y yo la convierto en un sitio del que se sentirá orgulloso.",
         heroCta1: "Hablemos por WhatsApp",
         heroCta2: "Ver proyectos",
         projKicker: "Proyectos",
-        projTitle: "Trabajo que puedes ver funcionando",
+        projTitle: "Trabajo que puede ver funcionando",
         projSub:
-            "Un proyecto real ya en línea y dos demos para que imagines cómo se vería el sitio de tu negocio.",
-        benefitsLabel: "Lo que le da a tu negocio",
+            "Un proyecto real ya en línea y dos demos para que visualice cómo se vería el sitio de su negocio.",
+        benefitsLabel: "Lo que le da a su negocio",
         viewLive: "Ver sitio en vivo",
         wantSimilar: "Quiero algo así",
         demosLabel: "Demos",
-        askDemo: "Pregúntame por esta demo",
+        askDemo: "Pregúnteme por esta demo",
         howKicker: "Cómo trabajo",
         howTitle: "Así trabajamos juntos",
         incKicker: "Qué incluye",
-        incTitle: "Qué incluye tu sitio",
+        incTitle: "Qué incluye su sitio",
         incNote:
-            "¿Tienes otra idea en mente? Podemos platicarla y encontrar la mejor forma de resolverla, sin compromiso.",
-        ctaTitle: "¿Listo para tener el sitio que tu negocio merece?",
-        ctaSub: "Escríbeme por WhatsApp o correo. Te respondo pronto y sin compromiso.",
+            "¿Tiene otra idea en mente? Podemos platicarla y encontrar la mejor forma de resolverla, sin compromiso.",
+        ctaTitle: "¿Listo para tener el sitio que su negocio merece?",
+        ctaSub: "Escríbame por WhatsApp o correo. Le respondo pronto y sin compromiso.",
         emailBtn: "Enviar correo",
         rights: "© 2026 Kuri",
     },
@@ -82,20 +82,18 @@ export const ui = {
 
 export const featured = {
     es: {
-        tag: "Proyecto real",
         title: "Sitio web para un laboratorio de análisis clínicos",
         desc:
             "DúoLab necesitaba que sus pacientes entendieran sus servicios y pudieran contactarlos sin complicaciones. Hoy tiene un sitio que responde dudas antes de que lleguen.",
         features: [
             "Botón de WhatsApp en cada sección",
-            "Preguntas frecuentes que resuelven dudas",
-            "Ubicación con Google Maps integrado",
-            "Se ve perfecto en el celular",
+            "Claridad con sus clientes",
+            "integrac ubicación con Google Maps",
+            "Diseño para cualquier celular",
         ],
         demoHref: "https://laboratoriosduolab.com",
     },
     en: {
-        tag: "Live project",
         title: "Website for a clinical analysis lab",
         desc:
             "DúoLab needed patients to understand their services and reach them easily. Now they have a site that answers questions before people even arrive.",
@@ -116,9 +114,9 @@ export const demos = {
             tag: "Demo",
             title: "Sitio web para consultorio de psicología",
             desc:
-                "Una página que transmite calidez y confianza, y facilita que un paciente nuevo agende su primera sesión.",
+                "Una página que transmite calidez y confianza, además facilita que un paciente nuevo agende su primera sesión.",
             features: [
-                "Agenda tu primera sesión en un clic",
+                "Agende su primera sesión a partir de un clic",
                 "Servicios explicados con claridad",
                 "Testimonios y ubicación del consultorio",
             ],
@@ -127,12 +125,12 @@ export const demos = {
         {
             id: "qr-menu",
             tag: "Demo",
-            title: "Menú QR para cafeterías",
+            title: "Menú online para cafeterías",
             desc:
                 "Un menú digital que los clientes abren con la cámara del celular. Sin apps, sin papel y siempre actualizado.",
             features: [
-                "Se actualiza cuando cambias precios",
-                "Fotos de tus productos",
+                "Se actualiza cuando usted cambia precios",
+                "Fotos de sus productos",
                 "Sin reimprimir menús",
             ],
             demoHref: "https://gud-cofi.pages.dev/",
@@ -170,10 +168,10 @@ export const demos = {
 
 export const steps = {
     es: [
-        { n: "1", title: "Platicamos sobre tu negocio", body: "Me cuentas qué haces y qué necesitas. Sin tecnicismos." },
-        { n: "2", title: "Preparo un prototipo", body: "Te muestro una primera versión para que la veas y la sientas." },
-        { n: "3", title: "La ajustamos juntos", body: "Cambiamos lo que quieras hasta que quede como la imaginas." },
-        { n: "4", title: "Publico tu sitio", body: "Dejo todo funcionando y te explico cómo usarlo." },
+        { n: "1", title: "Platicamos sobre su negocio", body: "Usted me cuenta qué hace y qué necesita. Yo propongo la solución, sin tecnicismos." },
+        { n: "2", title: "Preparo un prototipo", body: "Le muestro una primera versión para que la vea y la use de verdad." },
+        { n: "3", title: "Lo ajustamos juntos", body: "Cambiamos lo que usted quiera hasta que quede como lo imagina." },
+        { n: "4", title: "Publico su sitio", body: "Dejo todo funcionando y le explico cómo usarlo." },
     ],
     en: [
         { n: "1", title: "We talk about your business", body: "You tell me what you do and what you need. No jargon." },
@@ -189,10 +187,10 @@ export const included = {
         "Botón de WhatsApp integrado",
         "Ubicación con Google Maps",
         "Carga rápida",
-        "Diseño profesional a tu medida",
-        "Te oriento con el hosting",
-        "Configuración de dominio (opcional)",
-        "Podemos platicar cualquier idea que tengas",
+        "Diseño profesional a su medida",
+        "Lo oriento con el alojamiento en la nube",
+        "Compra y configuración del dominio",
+        "Podemos platicar cualquier idea que usted tenga",
     ],
     en: [
         "Design that looks great on mobile",
