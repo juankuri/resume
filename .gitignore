@@ -22,3 +22,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# editor-local settings
+.vscode/
+
+# design source material (not part of the deployed site)
+Portfolio.dc.html
+Portfolio.pdf
