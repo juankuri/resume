@@ -2,7 +2,13 @@
 // Reusable device frame for screenshots.
 // variant: "browser" (dots bar + screen) | "phone" (rounded bezel)
 // The screen content is passed via <slot />.
-const { variant = "browser", dots = 3, ratio = "16 / 10" } = Astro.props;
+interface Props {
+    variant?: "browser" | "phone";
+    dots?: number;
+    ratio?: string;
+}
+
+const { variant = "browser", dots = 3, ratio = "16 / 10" }: Props = Astro.props;
 ---
 
 {variant === "browser" && (

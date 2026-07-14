@@ -1,8 +1,17 @@
 ---
 // Demo project card: media frame (via <slot />) + benefits + CTA.
 import { waHref } from "../../data/portfolio.js";
+import type { DemoProject, UiText, Lang } from "../../types/portfolio";
 
-const { project, projectEn, t, ten, lang = "es" } = Astro.props;
+interface Props {
+    project: DemoProject;
+    projectEn: DemoProject;
+    t: UiText;
+    ten: UiText;
+    lang?: Lang;
+}
+
+const { project, projectEn, t, ten, lang = "es" }: Props = Astro.props;
 ---
 
 <article class="project-card">
