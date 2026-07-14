@@ -1,10 +1,15 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PortfolioHeader from "../components/portfolio/PortfolioHeader.astro";
 import PortfolioFooter from "../components/portfolio/PortfolioFooter.astro";
 import ProjectCard from "../components/portfolio/ProjectCard.astro";
 import DeviceMockup from "../components/portfolio/DeviceMockup.astro";
 import { ui, waHref, featured, demos, steps, included } from "../data/portfolio.js";
+import duolabDesktop from "../assets/portfolio/duolab-desktop.png";
+import duolabMobile from "../assets/portfolio/duolab-mobile.png";
+import demoPsychologyDesktop from "../assets/portfolio/demo-psychology-desktop.png";
+import demoQr from "../assets/portfolio/demo-qr.png";
 
 const lang = "es";
 const t = ui[lang];
@@ -21,6 +26,7 @@ const includedEn = included.en;
     lang={lang}
     title="Juan Kuri | Diseño y desarrollo de sitios web para tu negocio"
     description="Creo sitios web rápidos, claros y a la medida para negocios locales. Menús QR, páginas para consultorios, laboratorios y más."
+    image="/og-portfolio.png"
 >
     <PortfolioHeader slot="header" t={t} ten={ten} lang={lang} />
     <PortfolioFooter slot="footer" t={t} ten={ten} lang={lang} />
@@ -44,12 +50,12 @@ const includedEn = included.en;
             <div class="container devices">
                 <div class="laptop">
                     <DeviceMockup variant="browser" ratio="16 / 10">
-                        <img src="/portfolio/duolab-desktop.png" alt="Sitio web de DúoLab en computadora" />
+                        <Image src={duolabDesktop} alt="Sitio web de DúoLab en computadora" width={720} />
                     </DeviceMockup>
                 </div>
                 <div class="phone-wrap">
                     <DeviceMockup variant="phone" ratio="9 / 19.5">
-                        <img src="/portfolio/duolab-mobile.png" alt="Sitio web de DúoLab en celular" />
+                        <Image src={duolabMobile} alt="Sitio web de DúoLab en celular" width={300} />
                     </DeviceMockup>
                 </div>
             </div>
@@ -80,7 +86,7 @@ const includedEn = included.en;
                     </div>
                     <div class="featured-media">
                         <DeviceMockup variant="browser" ratio="16 / 11">
-                            <img src="/portfolio/duolab-desktop.png" alt="Página principal de DúoLab" />
+                            <Image src={duolabDesktop} alt="Página principal de DúoLab" width={640} />
                         </DeviceMockup>
                     </div>
                 </article>
@@ -90,13 +96,13 @@ const includedEn = included.en;
                 <div class="demo-grid">
                     <ProjectCard project={demoList[0]} projectEn={demoListEn[0]} t={t} ten={ten} lang={lang}>
                         <DeviceMockup variant="browser" ratio="16 / 10">
-                            <img src="/portfolio/demo-psychology-desktop.png" alt="Demo de sitio web para un consultorio de psicología" />
+                            <Image src={demoPsychologyDesktop} alt="Demo de sitio web para un consultorio de psicología" width={640} />
                         </DeviceMockup>
                     </ProjectCard>
                     <ProjectCard project={demoList[1]} projectEn={demoListEn[1]} t={t} ten={ten} lang={lang}>
                         <div class="demo-phone">
                             <DeviceMockup variant="phone" ratio="9 / 18">
-                                <img src="/portfolio/demo-qr.png" alt="Vista móvil del menú QR para una cafetería" />
+                                <Image src={demoQr} alt="Vista móvil del menú QR para una cafetería" width={300} />
                             </DeviceMockup>
                         </div>
                     </ProjectCard>
@@ -312,15 +318,12 @@ const includedEn = included.en;
         gap: 26px;
         align-items: stretch;
     }
-    /* phone-in-a-card sits on a dark stage; taller so the full mobile view shows */
+    /* phone sits directly on the card's own --warm background */
     .demo-phone {
-        background: var(--ink);
-        margin: -24px -24px 0;
-        padding: 28px 20px 0;
         display: flex;
         justify-content: center;
     }
-    .demo-phone :global(.phone) { width: 190px; box-shadow: none; }
+    .demo-phone :global(.phone) { width: 190px; }
 
     /* HOW I WORK */
     .how {

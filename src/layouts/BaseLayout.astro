@@ -7,7 +7,8 @@ const {
     title = "Juan Kuri - Software Engineering Student & Backend Developer",
     description = "Software Engineering student from Mexico specializing in Java, Spring Boot and backend development.",
     lang = "en",
-    canonical = new URL(Astro.url.pathname, Astro.site).href
+    canonical = new URL(Astro.url.pathname, Astro.site).href,
+    image = "/foto_perfil.png"
 } = Astro.props;
 ---
 
@@ -28,8 +29,9 @@ const {
             property="og:description"
             content={description}
         />
-        <meta property="og:image" content="/foto_perfil.png" />
+        <meta property="og:image" content={image} />
         <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
 
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
 

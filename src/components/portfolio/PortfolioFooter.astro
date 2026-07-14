@@ -1,7 +1,14 @@
 ---
 import { waHref, mailHref } from "../../data/portfolio.js";
+import type { UiText, Lang } from "../../types/portfolio";
 
-const { t, ten, lang = "es" } = Astro.props;
+interface Props {
+    t: UiText;
+    ten: UiText;
+    lang?: Lang;
+}
+
+const { t, ten, lang = "es" }: Props = Astro.props;
 ---
 
 <footer class="pf-footer">
