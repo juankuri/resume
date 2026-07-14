@@ -19,10 +19,14 @@ const { project, projectEn, t, ten, lang = "es" } = Astro.props;
             ))}
         </ul>
         <div class="links">
-            {project.demoHref && (
-                <a class="live" href={project.demoHref} target="_blank" rel="noopener noreferrer" data-en={`${ten.viewLive} ↗`}>{t.viewLive} ↗</a>
+            {project.demoHref ? (
+                <Fragment>
+                    <a class="live" href={project.demoHref} target="_blank" rel="noopener noreferrer" data-en={`${ten.viewLive} ↗`}>{t.viewLive} ↗</a>
+                    <a class="ask" href={waHref[lang]} data-en-href={waHref.en} data-en={ten.wantSimilar}>{t.wantSimilar}</a>
+                </Fragment>
+            ) : (
+                <a class="ask" href={waHref[lang]} data-en-href={waHref.en} data-en={`${ten.askDemo} →`}>{t.askDemo} →</a>
             )}
-            <a class="ask" href={waHref[lang]} data-en-href={waHref.en} data-en={`${ten.askDemo} →`}>{t.askDemo} →</a>
         </div>
     </div>
 </article>
