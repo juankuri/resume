@@ -1,7 +1,14 @@
 ---
 import { waHref } from "../../data/portfolio.js";
+import type { UiText, Lang } from "../../types/portfolio";
 
-const { t, ten, lang = "es" } = Astro.props;
+interface Props {
+    t: UiText;
+    ten: UiText;
+    lang?: Lang;
+}
+
+const { t, ten, lang = "es" }: Props = Astro.props;
 ---
 
 <header class="pf-header">
@@ -10,6 +17,7 @@ const { t, ten, lang = "es" } = Astro.props;
             <span class="brand-name">Juan Kuri</span>
         </a>
         <div class="actions">
+            <a class="resume-link" href="/resume">Resume</a>
             <button
                 id="lang-toggle"
                 class="lang-btn"
@@ -58,6 +66,18 @@ const { t, ten, lang = "es" } = Astro.props;
         gap: 12px;
     }
 
+    .resume-link {
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: var(--header-ink-soft);
+        text-decoration: none;
+        transition: color var(--ease);
+    }
+
+    .resume-link:hover {
+        color: #fff;
+    }
+
     .lang-btn {
         font-family: inherit;
         font-weight: 600;
@@ -90,5 +110,17 @@ const { t, ten, lang = "es" } = Astro.props;
 
     .cta:hover {
         transform: translateY(-1px);
+    }
+
+    /* on the smallest phones, the resume link is the least essential
+       item — drop it before anything wraps or crowds the brand name */
+    @media (max-width: 480px) {
+        .resume-link {
+            display: none;
+        }
+
+        .actions {
+            gap: 8px;
+        }
     }
 </style>
