@@ -26,7 +26,7 @@ export const ui = {
         heroKicker: "Diseño y desarrollo web",
         heroTitle: "Creo sitios web que hacen crecer tu negocio",
         heroSub:
-            "Páginas rápidas, claras y hechas a la medida de tu negocio local. Tú me cuentas tu idea y yo la convierto en un sitio del que te sentirás orgulloso.",
+            "Páginas modernas, optimizadas y hechas a la medida de tu negocio local. Tú me cuentas tu idea y yo la convierto en un sitio del que te sentirás orgulloso.",
         heroCta1: "Hablemos por WhatsApp",
         heroCta2: "Ver proyectos",
         projKicker: "Proyectos",
@@ -112,6 +112,19 @@ export const featured = {
 export const demos = {
     es: [
         {
+            id: "psychology",
+            tag: "Demo",
+            title: "Sitio web para consultorio de psicología",
+            desc:
+                "Una página que transmite calidez y confianza, y facilita que un paciente nuevo agende su primera sesión.",
+            features: [
+                "Agenda tu primera sesión en un clic",
+                "Servicios explicados con claridad",
+                "Testimonios y ubicación del consultorio",
+            ],
+            demoHref: "https://psychology-clinic-demo.pages.dev/",
+        },
+        {
             id: "qr-menu",
             tag: "Demo",
             title: "Menú QR para cafeterías",
@@ -122,21 +135,23 @@ export const demos = {
                 "Fotos de tus productos",
                 "Sin reimprimir menús",
             ],
-        },
-        {
-            id: "dental",
-            tag: "Demo",
-            title: "Sitio web para consultorio dental",
-            desc:
-                "Una página que transmite confianza y facilita que un paciente nuevo agende su cita.",
-            features: [
-                "Agenda una cita en un clic",
-                "Servicios explicados con claridad",
-                "Reseñas de pacientes y ubicación",
-            ],
+            demoHref: "https://gud-cofi.pages.dev/",
         },
     ],
     en: [
+        {
+            id: "psychology",
+            tag: "Demo",
+            title: "Website for a psychology practice",
+            desc:
+                "A page that feels warm and trustworthy, and makes it easy for a new patient to book their first session.",
+            features: [
+                "Book your first session in one click",
+                "Services explained clearly",
+                "Testimonials and practice location",
+            ],
+            demoHref: "https://psychology-clinic-demo.pages.dev/",
+        },
         {
             id: "qr-menu",
             tag: "Demo",
@@ -148,18 +163,7 @@ export const demos = {
                 "Photos of your products",
                 "No reprinting menus",
             ],
-        },
-        {
-            id: "dental",
-            tag: "Demo",
-            title: "Website for a dental clinic",
-            desc:
-                "A page that builds trust and makes it easy for a new patient to book an appointment.",
-            features: [
-                "Book an appointment in one click",
-                "Services explained clearly",
-                "Patient reviews and location",
-            ],
+            demoHref: "https://gud-cofi.pages.dev/",
         },
     ],
 };
