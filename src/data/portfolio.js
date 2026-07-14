@@ -4,7 +4,7 @@
    header intercambia los textos en el cliente.
    ============================================================ */
 
-const WHATSAPP_NUMBER = "529381156464";
+const WHATSAPP_NUMBER = "529381206950";
 const EMAIL = "juankupa11@gmail.com";
 
 export const mailHref = `mailto:${EMAIL}`;
@@ -22,7 +22,7 @@ export const waHref = {
 export const ui = {
     es: {
         langBtn: "EN",
-        navCta: "Escríbame",
+        navCta: "Contactar",
         heroKicker: "Diseño y desarrollo web",
         heroTitle: "Creo sitios web que hacen crecer su negocio",
         heroSub:
@@ -32,7 +32,7 @@ export const ui = {
         projKicker: "Proyectos",
         projTitle: "Trabajo que puede ver funcionando",
         projSub:
-            "Un proyecto real ya en línea y dos demos para que visualice cómo se vería el sitio de su negocio.",
+            "Un proyecto que ya está funcionando en Google y dos demos para que visualice cómo se vería el sitio de su negocio.",
         benefitsLabel: "Lo que le da a su negocio",
         viewLive: "Ver sitio en vivo",
         wantSimilar: "Quiero algo así",
@@ -88,7 +88,7 @@ export const featured = {
         features: [
             "Botón de WhatsApp en cada sección",
             "Claridad con sus clientes",
-            "integrac ubicación con Google Maps",
+            "Ubicación con Google Maps integrada",
             "Diseño para cualquier celular",
         ],
         demoHref: "https://laboratoriosduolab.com",
