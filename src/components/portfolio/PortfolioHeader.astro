@@ -6,8 +6,8 @@ const { t, ten, lang = "es" } = Astro.props;
 
 <header class="pf-header">
     <div class="container pf-header-content">
-        <a href="/" class="brand" aria-label="Kuri — inicio">
-            <img src="/logo-jk-light.svg" alt="" width="34" height="34" />
+        <a href="/" class="brand" aria-label="Juan Kuri — inicio">
+            <span class="brand-name">Juan Kuri</span>
         </a>
         <div class="actions">
             <button
@@ -41,12 +41,15 @@ const { t, ten, lang = "es" } = Astro.props;
 
     .brand {
         display: inline-flex;
-        line-height: 0;
+        align-items: center;
+        text-decoration: none;
     }
 
-    .brand img {
-        width: 34px;
-        height: 34px;
+    .brand-name {
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: -0.01em;
+        color: #fff;
     }
 
     .actions {
