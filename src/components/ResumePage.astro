@@ -1,0 +1,191 @@
+---
+import SkillCard from "./SkillCard.astro";
+import CopyButton from "./CopyButton.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import type { ResumeContent } from "../data/resume";
+
+interface Props {
+    r: ResumeContent;
+    otherHref: string;
+    otherLabel: string;
+}
+
+const { r, otherHref, otherLabel } = Astro.props;
+---
+
+<BaseLayout
+    lang={r.lang}
+    title={r.metaTitle}
+    description={r.metaDescription}
+>
+    <main>
+        <div class="container">
+            <div class="lang-row">
+                <a class="lang-toggle" href={otherHref}>{otherLabel}</a>
+                <a class="pdf-download" href={r.pdfHref} target="_blank" rel="noopener noreferrer">{r.headings.downloadPdf}</a>
+            </div>
+
+            <section id="welcome">
+                <img src="/nueva_foto_perfil.png" alt={r.name} id="profile-photo" />
+                <div>
+                    <h1>{r.name}</h1>
+                    <p>{r.role}</p>
+                </div>
+            </section>
+
+            <section id="summary">
+                <h2>{r.headings.summary}</h2>
+                <p>{r.summary}</p>
+            </section>
+
+            <section id="selected-projects">
+                <h2>{r.headings.selectedProjects}</h2>
+                {
+                    r.selectedProjects.map((project) => (
+                        <article class="project">
+                            <div class="project-heading">
+                                <h3>{project.title}</h3>
+                                <span class="project-meta">{project.meta}</span>
+                            </div>
+                            <p class="project-context">{project.context}</p>
+                            <ul>
+                                {project.bullets.map((bullet) => <li>{bullet}</li>)}
+                            </ul>
+                        </article>
+                    ))
+                }
+            </section>
+
+            <section id="other-projects">
+                <h2>{r.headings.otherProjects}</h2>
+                {
+                    r.otherProjects.map((project) => (
+                        <p><strong>{project.title}</strong> {project.body}</p>
+                    ))
+                }
+            </section>
+
+            <section id="skills">
+                <h2>{r.headings.skills}</h2>
+                <div class="cards">
+                    {
+                        r.skills.map((skill) => (
+                            <SkillCard title={skill.title} description={skill.description} />
+                        ))
+                    }
+                </div>
+            </section>
+
+            <section id="soft-skills">
+                <h2>{r.headings.softSkills}</h2>
+                <div class="cards">
+                    {
+                        r.softSkills.map((skill) => (
+                            <SkillCard title={skill.title} description={skill.description} />
+                        ))
+                    }
+                </div>
+            </section>
+
+            <section id="education">
+                <h2>{r.headings.education}</h2>
+                <h3>{r.education.title}</h3>
+                <p>{r.education.institution} <br /> {r.education.dates}</p>
+                <p>{r.education.details}</p>
+            </section>
+
+            <section id="certifications">
+                <h2>{r.headings.certifications}</h2>
+                <p><strong>{r.certifications.technicalLabel}:</strong> {r.certifications.technical}</p>
+                <p><strong>{r.certifications.crossFunctionalLabel}:</strong> {r.certifications.crossFunctional}</p>
+                <p><strong>{r.certifications.languagesLabel}:</strong> {r.certifications.languages}</p>
+            </section>
+
+            <section id="contact">
+                <h2>{r.headings.contact}</h2>
+                <div class="layout">
+                    <div>
+                        <h3>{r.headings.emailLabel}</h3>
+                        <div class="email-row">
+                            <a href={`mailto:${r.email}`} class="email-link">{r.email}</a>
+                            <CopyButton text={r.email} />
+                        </div>
+                    </div>
+                    <div>
+                        <h3>{r.headings.locationLabel}</h3>
+                        <p>{r.location}</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</BaseLayout>
+
+<style>
+    .lang-row {
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+        padding-top: 16px;
+    }
+
+    .lang-toggle,
+    .pdf-download {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--ink-soft);
+        text-decoration: none;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 6px 16px;
+    }
+
+    .lang-toggle:hover,
+    .pdf-download:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+    }
+
+    .project-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .project-heading h3 {
+        margin: 0;
+    }
+
+    .project-meta {
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+        white-space: nowrap;
+    }
+
+    .project-context {
+        margin: 4px 0 10px;
+        font-style: italic;
+        color: var(--ink-soft);
+    }
+
+    .project + .project {
+        margin-top: 28px;
+    }
+
+    .email-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .email-link {
+        color: var(--ink-soft);
+        text-decoration: none;
+    }
+
+    .email-link:hover {
+        color: var(--accent);
+    }
+</style>
