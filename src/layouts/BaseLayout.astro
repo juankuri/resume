@@ -5,12 +5,15 @@ import Footer from "../components/Footer.astro";
 
 const {
     title = "Juan Kuri - Software Engineering Student & Backend Developer",
-    description = "Software Engineering student from Mexico specializing in Java, Spring Boot and backend development."
+    description = "Software Engineering student from Mexico specializing in Java, Spring Boot and backend development.",
+    lang = "en",
+    canonical = new URL(Astro.url.pathname, Astro.site).href,
+    image = "/foto_perfil.png"
 } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
     <head>
         <meta charset="utf-8" />
 
@@ -26,14 +29,15 @@ const {
             property="og:description"
             content={description}
         />
-        <meta property="og:image" content="/foto_perfil.png" />
+        <meta property="og:image" content={image} />
         <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
 
         <link rel="icon" href="/favicon.ico" />
 
         <link
             rel="canonical"
-            href="https://kuri.dev/"
+            href={canonical}
         />
 
         <meta
@@ -43,8 +47,8 @@ const {
     </head>
 
     <body>
-        <Header />
+        <slot name="header"><Header /></slot>
         <slot />
-        <Footer />
+        <slot name="footer"><Footer /></slot>
     </body>
 </html>
