@@ -17,6 +17,7 @@ const { r, otherHref, otherLabel } = Astro.props;
     lang={r.lang}
     title={r.metaTitle}
     description={r.metaDescription}
+    nav={r.nav}
 >
     <main>
         <div class="container">
@@ -26,7 +27,7 @@ const { r, otherHref, otherLabel } = Astro.props;
             </div>
 
             <section id="welcome">
-                <img src="/nueva_foto_perfil.png" alt={r.name} id="profile-photo" />
+                <img src="/nueva_foto_perfil.jpeg" alt={r.name} id="profile-photo" />
                 <div>
                     <h1>{r.name}</h1>
                     <p>{r.role}</p>
@@ -37,6 +38,24 @@ const { r, otherHref, otherLabel } = Astro.props;
                 <h2>{r.headings.summary}</h2>
                 <p>{r.summary}</p>
             </section>
+
+            {r.experience.length > 0 && (
+                <section id="experience">
+                    <h2>{r.headings.experience}</h2>
+                    {r.experience.map((job) => (
+                        <article class="experience-item">
+                            <div class="project-heading">
+                                <h3>{job.title}</h3>
+                                <span class="project-meta">{job.meta}</span>
+                            </div>
+                            <p class="project-context">{job.company}</p>
+                            <ul>
+                                {job.bullets.map((bullet) => <li>{bullet}</li>)}
+                            </ul>
+                        </article>
+                    ))}
+                </section>
+            )}
 
             <section id="selected-projects">
                 <h2>{r.headings.selectedProjects}</h2>
@@ -171,6 +190,10 @@ const { r, otherHref, otherLabel } = Astro.props;
     }
 
     .project + .project {
+        margin-top: 28px;
+    }
+
+    .experience-item + .experience-item {
         margin-top: 28px;
     }
 

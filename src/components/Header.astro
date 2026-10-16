@@ -1,6 +1,7 @@
 ---
 interface Props {
     nav?: {
+        experience: string;
         projects: string;
         education: string;
         contact: string;
@@ -8,7 +9,7 @@ interface Props {
 }
 
 const {
-    nav = { projects: "Projects", education: "Education", contact: "Contact" },
+    nav = { experience: "Experience", projects: "Projects", education: "Education", contact: "Contact" },
 } = Astro.props as Props;
 ---
 
@@ -16,6 +17,7 @@ const {
 	<div class="container header-content">
 		<h2>Kuri</h2>
 			<nav class="main-navigation">
+				<a href="#experience">{nav.experience}</a>
 				<a href="#selected-projects">{nav.projects}</a>
 				<a href="#education">{nav.education}</a>
 				<a href="#contact">{nav.contact}</a>

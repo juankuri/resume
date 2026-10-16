@@ -15,6 +15,13 @@ export interface OtherProject {
     body: string;
 }
 
+export interface Experience {
+    title: string;
+    company: string;
+    meta: string;
+    bullets: string[];
+}
+
 export interface SkillCategory {
     title: string;
     description: string;
@@ -34,6 +41,7 @@ export interface ResumeContent {
     site: string;
     siteHref: string;
     nav: {
+        experience: string;
         projects: string;
         education: string;
         contact: string;
@@ -41,6 +49,7 @@ export interface ResumeContent {
     };
     headings: {
         summary: string;
+        experience: string;
         selectedProjects: string;
         otherProjects: string;
         skills: string;
@@ -53,6 +62,7 @@ export interface ResumeContent {
         downloadPdf: string;
     };
     summary: string;
+    experience: Experience[];
     selectedProjects: SelectedProject[];
     otherProjects: OtherProject[];
     skills: SkillCategory[];
@@ -91,6 +101,7 @@ export const resume: Record<"es" | "en", ResumeContent> = {
         site: "juankuri.pages.dev",
         siteHref: "https://juankuri.pages.dev",
         nav: {
+            experience: "Experiencia",
             projects: "Proyectos",
             education: "Formación",
             contact: "Contacto",
@@ -98,6 +109,7 @@ export const resume: Record<"es" | "en", ResumeContent> = {
         },
         headings: {
             summary: "Perfil",
+            experience: "Experiencia",
             selectedProjects: "Proyectos principales",
             otherProjects: "Otros proyectos",
             skills: "Habilidades",
@@ -111,6 +123,35 @@ export const resume: Record<"es" | "en", ResumeContent> = {
         },
         summary:
             "Estudiante de Ingeniería de Software, 7.º semestre. Desarrollo solo, de los requisitos al código, el sistema de horarios de la Coordinación Académica de mi facultad: autenticación, siete catálogos y armado de horarios para dos roles, con Java, Spring Boot y PostgreSQL. Busco prácticas profesionales, en Orizaba, cercano a Orizaba o remoto. Mis prácticas profesionales formales empiezan en agosto de 2027.",
+        experience: [
+            {
+                title: "Ingeniero de Software — Sistema Integral para la Gestión de Horarios Académicos (SIGHA)",
+                company: "Universidad Veracruzana · Extracurricular",
+                meta: "Feb 2026 – Presente",
+                bullets: [
+                    "Lideré el desarrollo desde el análisis de requisitos y reglas de negocio hasta el diseño, implementación y pruebas, trabajando inicialmente como único desarrollador durante seis meses.",
+                    "Implementé el sistema con React y Firebase, coordinando el trabajo técnico de un equipo de seis personas y adaptando la arquitectura a las restricciones tecnológicas y de despliegue.",
+                    "Gestioné la colaboración y validación continua con el cliente, traduciendo necesidades en requisitos y mejoras iterativas.",
+                ],
+            },
+            {
+                title: "Desarrollador web — DuoLab",
+                company: "Proyecto Independiente",
+                meta: "Jun 2026 – Sep 2026",
+                bullets: [
+                    "Construí y desplegué el sitio web público de un laboratorio con Astro y Cloudflare, logrando una puntuación Lighthouse de 95.",
+                    "Diseñé el backend para el portal de resultados con 20 endpoints REST usando Hono y servicios de Cloudflare; su desarrollo es independiente del sitio público.",
+                ],
+            },
+            {
+                title: "Redactor Técnico — VitalDM",
+                company: "Universidad Veracruzana",
+                meta: "Feb 2026 – Ago 2026",
+                bullets: [
+                    "Redacté dos manuales de usuario para pacientes y médicos, documentando los flujos de las aplicaciones móvil y web del sistema.",
+                ],
+            },
+        ],
         selectedProjects: [
             {
                 title: "Sistema de Gestión de Horarios Académicos",
@@ -217,6 +258,7 @@ export const resume: Record<"es" | "en", ResumeContent> = {
         site: "juankuri.pages.dev",
         siteHref: "https://juankuri.pages.dev",
         nav: {
+            experience: "Experience",
             projects: "Projects",
             education: "Education",
             contact: "Contact",
@@ -224,6 +266,7 @@ export const resume: Record<"es" | "en", ResumeContent> = {
         },
         headings: {
             summary: "Summary",
+            experience: "Experience",
             selectedProjects: "Selected projects",
             otherProjects: "Other projects",
             skills: "Skills",
@@ -237,6 +280,35 @@ export const resume: Record<"es" | "en", ResumeContent> = {
         },
         summary:
             "Software Engineering student, 7th of 9 semesters. Building end to end, on my own, the class scheduling system for my faculty's academic coordination office: authentication, seven catalogs, and schedule generation for two roles, in Java, Spring Boot, and PostgreSQL. Open to internships in Orizaba, nearby, or remote. My formal degree-required internship starts August 2027.",
+        experience: [
+            {
+                title: "Software Engineer — Academic Schedule Management System (SIGHA)",
+                company: "Universidad Veracruzana · Extracurricular",
+                meta: "Feb 2026 – Present",
+                bullets: [
+                    "Led project development from requirements analysis and business rules through system design, implementation, and testing, initially working as the sole developer for six months.",
+                    "Implemented the system with React and Firebase, coordinated contributions from a six-person team, and maintained the technical documentation and architecture.",
+                    "Managed ongoing client collaboration and validation, translating stakeholder needs into technical requirements and iterative improvements.",
+                ],
+            },
+            {
+                title: "Web Developer — DuoLab",
+                company: "Independent Project",
+                meta: "Jun 2026 – Sep 2026",
+                bullets: [
+                    "Built and deployed a public laboratory website with Astro and Cloudflare, achieving a Lighthouse performance score of 95.",
+                    "Designed the backend for a results-management portal with 20 REST endpoints using Hono and Cloudflare services; portal development is separate from the live public website.",
+                ],
+            },
+            {
+                title: "Technical Writer — VitalDM",
+                company: "Universidad Veracruzana",
+                meta: "Feb 2026 – Aug 2026",
+                bullets: [
+                    "Authored two user manuals for patients and physicians, documenting workflows for the system's mobile and web applications.",
+                ],
+            },
+        ],
         selectedProjects: [
             {
                 title: "Sistema de Gestión de Horarios Académicos",

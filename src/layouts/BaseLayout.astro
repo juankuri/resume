@@ -47,7 +47,7 @@ const {
     </head>
 
     <body>
-        <slot name="header"><Header /></slot>
+        <slot name="header"><Header nav={Astro.props.nav} /></slot>
         <slot />
         <slot name="footer"><Footer /></slot>
     </body>
