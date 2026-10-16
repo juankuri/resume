@@ -1,11 +1,26 @@
+---
+interface Props {
+    nav?: {
+        experience: string;
+        projects: string;
+        education: string;
+        contact: string;
+    };
+}
+
+const {
+    nav = { experience: "Experience", projects: "Projects", education: "Education", contact: "Contact" },
+} = Astro.props as Props;
+---
+
 <header class="header">
 	<div class="container header-content">
 		<h2>Kuri</h2>
 			<nav class="main-navigation">
-				<a href="#approach">Approach</a>
-				<a href="#my-roles">Roles</a>
-				<a href="#contact">Contact</a>
-				<a href="/" class="header-cta">Portfolio</a>
+				<a href="#experience">{nav.experience}</a>
+				<a href="#selected-projects">{nav.projects}</a>
+				<a href="#education">{nav.education}</a>
+				<a href="#contact">{nav.contact}</a>
 			</nav>
 	</div>
 </header>
