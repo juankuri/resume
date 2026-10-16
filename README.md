@@ -1,108 +1,47 @@
-# Juan Kuri — Portfolio & Resume
+# Juan Kuri — Resume Website
 
-Personal site built with Astro, serving two audiences:
+This is my resume website: a bilingual, static site that presents my experience, projects, technical skills, and downloadable CVs.
 
-* **`/`** — Portfolio for freelance clients (small local businesses): what I build, real/demo projects and how the process works.
-* **`/resume`** — Resume for recruiters, in English.
+Live site: [juankuri.pages.dev](juankuri.pages.dev)
 
-## Overview
+## Why? What for?
 
-The goal of this project is to create fast, accessible, SEO-friendly pages while learning modern web development tools and workflows.
+I chose Astro instead of a client-rendered framework because the site is primarily resume content. The result is HTML generated at build time, with only small interactive behaviors where they provide clear value.
 
-The project focuses on:
+### One presentation, two localized resumes
 
-* Astro fundamentals
-* Component-based development
-* Reusable layouts and props
-* Static site generation
-* Basic SEO practices
-* Responsive design
-* Modern deployment workflows
+Spanish and English pages use the same `ResumePage` component and typed content model. This keeps layout changes consistent across both languages without duplicating page markup.
 
-## Technologies
+### Content separated from presentation
 
-* Astro
-* HTML5
-* CSS3
-* JavaScript
-* pnpm
-* Git & GitHub
+Resume content lives in `src/data/resume.ts`, while components handle structure and CSS handles presentation. Updating experience, projects, or skills does not require editing the page template.
 
-## Features
+### Direct access for recruiters
 
-* Responsive design
-* Component-based architecture
-* Reusable cards and layouts
-* SEO metadata
-* Open Graph tags
-* Static site generation
-* Fast loading performance
+The site provides language switching, downloadable one-page English and Spanish CVs, semantic section navigation, contact copying, and responsive layouts for desktop and mobile.
 
-## Project Structure
+### Performance-conscious assets
 
-```text
-src/
-├── components/
-├── data/
-├── layouts/
-├── pages/
-└── styles/
+The profile image is served as optimized WebP with declared dimensions and high priority because it is part of the initial viewport. The site is statically generated and has no client-side framework runtime.
 
-public/
-```
+## Stack
 
-## Local Development
+Astro · TypeScript · HTML · CSS · npm · Cloudflare Pages
 
-Install dependencies:
+## Run locally
 
 ```bash
-pnpm install
+npm install
+npm run dev
 ```
-
-Start the development server:
 
 ```bash
-pnpm dev
+npm run build
+npm run preview
 ```
 
-Build the project:
+## Author 
 
-```bash
-pnpm build
-```
+**Juan Pablo Kuri Ricárdez** — Software Engineering student focused on practical system design and fullstack development.
 
-Preview the production build:
-
-```bash
-pnpm preview
-```
-
-## Learning Goals
-
-This project was created to learn:
-
-* Astro fundamentals
-* Component architecture
-* Static websites
-* SEO basics
-* Modern deployment workflows
-
-It is the first step toward building a complete personal website and future freelance web development projects.
-
-## Future Improvements
-
-* EN/ES toggle wiring for more sections
-* Real screenshots for all demo projects
-* Contact form
-* Blog
-* Domain integration
-* Search Console integration
-
-## Author
-
-Juan Kuri
-
-Software Engineering student from Mexico specializing in backend development with Java and Spring Boot.
-
-* LinkedIn: https://www.linkedin.com/in/juankuri/
-* GitHub: https://github.com/juankuri
+[LinkedIn](https://www.linkedin.com/in/juankuri/) 
