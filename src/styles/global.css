@@ -47,6 +47,7 @@ html {
 
 body {
 	margin: 0;
+	overflow-x: hidden;
 }
 
 img {
@@ -164,6 +165,8 @@ section > h2::after {
 .main-navigation {
 	display: flex;
 	gap: 8px;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .main-navigation a {
@@ -307,6 +310,19 @@ section > h2::after {
 	.header-content {
 		flex-direction: column;
 		gap: 12px;
+	}
+
+	.main-navigation {
+		width: 100%;
+		gap: 0;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	}
+
+	.main-navigation a {
+		font-size: 0.78rem;
+		padding: 7px 5px;
+		white-space: nowrap;
 	}
 
 	#welcome {

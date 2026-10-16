@@ -27,7 +27,16 @@ const { r, otherHref, otherLabel } = Astro.props;
             </div>
 
             <section id="welcome">
-                <img src="/nueva_foto_perfil.jpeg" alt={r.name} id="profile-photo" />
+                <img
+                    src="/nueva_foto_perfil.webp"
+                    alt={r.name}
+                    id="profile-photo"
+                    width="720"
+                    height="857"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="async"
+                />
                 <div>
                     <h1>{r.name}</h1>
                     <p>{r.role}</p>
