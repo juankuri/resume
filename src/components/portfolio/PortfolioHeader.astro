@@ -1,0 +1,126 @@
+---
+import { waHref } from "../../data/portfolio.js";
+import type { UiText, Lang } from "../../types/portfolio";
+
+interface Props {
+    t: UiText;
+    ten: UiText;
+    lang?: Lang;
+}
+
+const { t, ten, lang = "es" }: Props = Astro.props;
+---
+
+<header class="pf-header">
+    <div class="container pf-header-content">
+        <a href="/" class="brand" aria-label="Juan Kuri — inicio">
+            <span class="brand-name">Juan Kuri</span>
+        </a>
+        <div class="actions">
+            <a class="resume-link" href="/resume">Resume</a>
+            <button
+                id="lang-toggle"
+                class="lang-btn"
+                type="button"
+                aria-label="Switch language"
+            >{t.langBtn}</button>
+            <a class="cta" href={waHref[lang]} data-en-href={waHref.en}>
+                <span data-en={ten.navCta}>{t.navCta}</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<style>
+    .pf-header {
+        background: var(--header-bg);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid #262626;
+    }
+
+    .pf-header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-block: 14px;
+    }
+
+    .brand {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .brand-name {
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: -0.01em;
+        color: #fff;
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .resume-link {
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: var(--header-ink-soft);
+        text-decoration: none;
+        transition: color var(--ease);
+    }
+
+    .resume-link:hover {
+        color: #fff;
+    }
+
+    .lang-btn {
+        font-family: inherit;
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        color: var(--header-ink);
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 999px;
+        padding: 7px 14px;
+        cursor: pointer;
+        transition: border-color var(--ease), background-color var(--ease);
+    }
+
+    .lang-btn:hover {
+        border-color: rgba(255, 255, 255, 0.55);
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    .cta {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--ink);
+        background: #fff;
+        border-radius: 999px;
+        padding: 9px 18px;
+        text-decoration: none;
+        transition: transform var(--ease);
+    }
+
+    .cta:hover {
+        transform: translateY(-1px);
+    }
+
+    /* on the smallest phones, the resume link is the least essential
+       item — drop it before anything wraps or crowds the brand name */
+    @media (max-width: 480px) {
+        .resume-link {
+            display: none;
+        }
+
+        .actions {
+            gap: 8px;
+        }
+    }
+</style>

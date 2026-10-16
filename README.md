@@ -1,12 +1,13 @@
-# Juan Kuri Resume Website
+# Juan Kuri — Portfolio & Resume
 
-Personal resume website built with Astro.
+Personal site built with Astro, serving two audiences:
 
-This project serves as the first iteration of my personal website and the foundation for future versions including an About page, portfolio, and complete personal website.
+* **`/`** — Portfolio for freelance clients (small local businesses): what I build, real/demo projects and how the process works.
+* **`/resume`** — Resume for recruiters, in English.
 
 ## Overview
 
-The goal of this project is to create a fast, accessible, and SEO-friendly resume website while learning modern web development tools and workflows.
+The goal of this project is to create fast, accessible, SEO-friendly pages while learning modern web development tools and workflows.
 
 The project focuses on:
 
@@ -90,9 +91,8 @@ It is the first step toward building a complete personal website and future free
 
 ## Future Improvements
 
-* About page
-* Portfolio section
-* Project showcase
+* EN/ES toggle wiring for more sections
+* Real screenshots for all demo projects
 * Contact form
 * Blog
 * Domain integration
