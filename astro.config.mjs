@@ -3,5 +3,8 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: "https://juankuri.pages.dev",
+  redirects: {
+    "/resume": "/",
+  },
   integrations: [sitemap()]
 });
