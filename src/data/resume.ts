@@ -122,7 +122,7 @@ export const resume: Record<"es" | "en", ResumeContent> = {
             downloadPdf: "Descargar PDF",
         },
         summary:
-            "Estudiante de Ingeniería de Software, 7.º semestre. Desarrollo solo, de los requisitos al código, el sistema de horarios de la Coordinación Académica de mi facultad: autenticación, siete catálogos y armado de horarios para dos roles, con Java, Spring Boot y PostgreSQL. Busco prácticas profesionales, en Orizaba, cercano a Orizaba o remoto. Mis prácticas profesionales formales empiezan en agosto de 2027.",
+            "Estudiante de Ingeniería de Software (7.º de 9 semestres) con enfoque full-stack. Me gusta diseñar cómo funcionan los sistemas pensando primero en las necesidades de quienes los usan. Suelo investigar, proponer soluciones y entender el problema antes de implementar; también procuro aprender de mis errores y mejorar mis decisiones técnicas con la experiencia. Busco prácticas profesionales en Ciudad del Carmen, Orizaba, Puebla, o en remoto, a partir de agosto de 2027.",
         experience: [
             {
                 title: "Ingeniero de Software — Sistema Integral para la Gestión de Horarios Académicos (SIGHA)",
@@ -279,7 +279,7 @@ export const resume: Record<"es" | "en", ResumeContent> = {
             downloadPdf: "Download PDF",
         },
         summary:
-            "Software Engineering student, 7th of 9 semesters. Building end to end, on my own, the class scheduling system for my faculty's academic coordination office: authentication, seven catalogs, and schedule generation for two roles, in Java, Spring Boot, and PostgreSQL. Open to internships in Orizaba, nearby, or remote. My formal degree-required internship starts August 2027.",
+            "Software Engineering student (7th of 9 semesters) with a full-stack focus. I enjoy designing how systems work, starting with the needs of the people who use them. I tend to research, propose solutions, and understand the problem before implementing; I also strive to learn from my mistakes and improve my technical decisions through experience. Seeking internship opportunities in Ciudad del Carmen, Orizaba, Puebla, or remotely, starting in August 2027.",
         experience: [
             {
                 title: "Software Engineer — Academic Schedule Management System (SIGHA)",
